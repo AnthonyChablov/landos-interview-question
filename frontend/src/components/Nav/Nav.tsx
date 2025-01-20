@@ -8,24 +8,27 @@ import {
   SheetTrigger,
   SheetHeader,
 } from "@/components/ui/sheet"; // Shadcn Sheet Component
+import { useRouter } from "next/navigation";
 import Container from "../Layout/Container";
 import FigmaIcon from "../../../public/Figma.png";
 import ParagraphText from "../Text/ParagraphText";
+import { usePathname } from "next/navigation";
 import { ButtonLink } from "../Buttons/ButtonIcons";
 
 // Data object for navigation links with string ids
 const navLinks = [
   { id: "Initio", name: "Initio", href: "/initio" },
-  { id: "Serviços", name: "Serviços", href: "/serviços" },
+  { id: "Serviços", name: "Serviços", href: "/servicos" },
   { id: "Communidade", name: "Communidade", href: "/communidade" },
   { id: "Recursos", name: "Recursos", href: "/recursos" },
-  { id: "Preços", name: "Preços", href: "/preços" },
+  { id: "Preços", name: "Preços", href: "/precos" },
   { id: "Contacto", name: "Contacto", href: "/contacto" },
   { id: "Sign in", name: "Sign In", href: "/signin" },
   { id: "Registrar", name: "Registrar", href: "/registrar" },
 ];
 
 const Nav = () => {
+  const pathname = usePathname();
   return (
     <nav className=" bg-customGreen">
       <Container className="flex items-center justify-between py-14 space-x-14">
@@ -42,7 +45,11 @@ const Nav = () => {
             <ButtonLink
               key={link.id}
               href={link.href}
-              className="bg-gray-200 hover:bg-gray-200/70"
+              className={`${
+                pathname === link.href
+                  ? "bg-gray-200 hover:bg-gray-200/90 text-white"
+                  : " bg-transparent hover:bg-transparent shadow-none "
+              }`}
             >
               <ParagraphText size="sm" text={link.name} />
             </ButtonLink>

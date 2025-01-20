@@ -6,7 +6,7 @@ import Separator from "@/components/Layout/Separator";
 
 const Hero = () => {
   return (
-    <div className="flex items-center justify-center flex-col h-screen">
+    <section className="flex items-center justify-center flex-col h-screen bg-customGray">
       <HeaderText
         className=""
         headerLevel="h1"
@@ -20,7 +20,7 @@ const Hero = () => {
       />
       <Separator className="" size="small" />
       <QueryInputForm />
-    </div>
+    </section>
   );
 };
 

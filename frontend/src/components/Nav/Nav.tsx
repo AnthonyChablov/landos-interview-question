@@ -8,58 +8,47 @@ import {
   SheetTrigger,
   SheetHeader,
 } from "@/components/ui/sheet"; // Shadcn Sheet Component
-import { useRouter } from "next/navigation";
 import Container from "../Layout/Container";
 import FigmaIcon from "../../../public/Figma.png";
 import ParagraphText from "../Text/ParagraphText";
 import { usePathname } from "next/navigation";
-import { ButtonLink } from "../Buttons/ButtonIcons";
-
-// Data object for navigation links with string ids
-const navLinks = [
-  { id: "Initio", name: "Initio", href: "/initio" },
-  { id: "Serviços", name: "Serviços", href: "/servicos" },
-  { id: "Communidade", name: "Communidade", href: "/communidade" },
-  { id: "Recursos", name: "Recursos", href: "/recursos" },
-  { id: "Preços", name: "Preços", href: "/precos" },
-  { id: "Contacto", name: "Contacto", href: "/contacto" },
-  { id: "Sign in", name: "Sign In", href: "/signin" },
-  { id: "Registrar", name: "Registrar", href: "/registrar" },
-];
+import { ButtonIcon } from "../Buttons/ButtonIcons";
+import { ButtonLink } from "../Buttons/ButtonLink";
+import { navLinks } from "./navLinks";
 
 const Nav = () => {
   const pathname = usePathname();
   return (
-    <nav className=" bg-customGreen">
-      <Container className="flex items-center justify-between py-14 space-x-14">
-        {/* Logo */}
-        <div className="text-xl font-bold">
-          <Link href="/" className="w-fit">
-            <Image src={FigmaIcon} width={30} alt="logo"></Image>
-          </Link>
-        </div>
+    <Container className="flex items-center justify-between py-6 space-x-14">
+      {/* Logo */}
+      <div className="text-xl font-bold">
+        <Link href="/" className="w-fit">
+          <Image src={FigmaIcon} width={27} alt="logo"></Image>
+        </Link>
+      </div>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex w-fit space-x-4 justify-between items-center">
-          {navLinks.map((link) => (
-            <ButtonLink
-              key={link.id}
-              href={link.href}
-              className={`${
-                pathname === link.href
-                  ? "bg-gray-200 hover:bg-gray-200/90 text-white"
-                  : " bg-transparent hover:bg-transparent shadow-none "
-              }`}
-            >
-              <ParagraphText size="sm" text={link.name} />
-            </ButtonLink>
-          ))}
-        </div>
+      {/* Desktop Links */}
+      <nav className="hidden lg:flex w-fit space-x-4 justify-between items-center">
+        {navLinks.map((link) => (
+          <ButtonLink
+            key={link.id}
+            href={link.href}
+            className={` px-5 ${
+              pathname === link.href
+                ? "bg-gray-100 hover:bg-gray-100/90 shadow-none text-black"
+                : " bg-transparent hover:bg-transparent shadow-none "
+            }`}
+          >
+            <ParagraphText className="text-black" size="sm" text={link.name} />
+          </ButtonLink>
+        ))}
+      </nav>
 
-        {/* Mobile Menu */}
-        <Sheet>
-          <SheetTrigger asChild className="md:hidden">
-            {/* Custom SVG Menu Icon */}
+      {/* Mobile Menu */}
+      <Sheet>
+        <SheetTrigger asChild className="lg:hidden">
+          {/* Custom SVG Menu Icon */}
+          <ButtonIcon>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-8 h-8"
@@ -74,24 +63,32 @@ const Nav = () => {
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-64">
-            <SheetHeader></SheetHeader>
-            <nav className="flex flex-col space-y-4 p-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.id}
-                  href={link.href}
-                  className="text-xl font-bold text-customBlue hover:text-customBlue"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
-      </Container>
-    </nav>
+          </ButtonIcon>
+        </SheetTrigger>
+        <SheetContent side="right" className="w-full md:w-96">
+          <SheetHeader></SheetHeader>
+          <nav className="flex flex-col space-y-4 p-4">
+            {navLinks.map((link) => (
+              <ButtonLink
+                key={link.id}
+                href={link.href}
+                className={`px-5 ${
+                  pathname === link.href
+                    ? "bg-gray-100 hover:bg-gray-100/90 shadow-none "
+                    : " bg-transparent hover:bg-transparent shadow-none "
+                }`}
+              >
+                <ParagraphText
+                  className="text-black"
+                  size="lg"
+                  text={link.name}
+                />
+              </ButtonLink>
+            ))}
+          </nav>
+        </SheetContent>
+      </Sheet>
+    </Container>
   );
 };
 

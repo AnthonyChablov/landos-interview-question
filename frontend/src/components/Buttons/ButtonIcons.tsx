@@ -1,27 +1,22 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-interface ButtonLinkProps {
-  href: string;
-  children?: React.ReactNode;
+interface ButtonIconProps {
+  children?: ReactNode;
   className?: string;
   onClick?: () => void;
 }
 
-export function ButtonLink({
-  href,
-  className,
-  children,
-  onClick,
-}: ButtonLinkProps) {
+export function ButtonIcon({ children, className, onClick }: ButtonIconProps) {
   return (
     <Button
-      asChild
+      className={cn(`${className}`)}
+      variant="outline"
+      size="icon"
       onClick={onClick}
-      className={cn(`${className}  w-full md:w-fit text-black  `)}
     >
-      <Link href={href}>{children}</Link>
+      {children}
     </Button>
   );
 }

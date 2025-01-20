@@ -24,7 +24,7 @@ const Nav = () => {
   };
 
   return (
-    <Container className="flex items-center justify-between py-6 space-x-14">
+    <Container className="flex items-center justify-between py-6 ">
       {/* Logo */}
       <div className="text-xl font-bold">
         <Link href="/" className="w-fit">
@@ -61,7 +61,6 @@ const Nav = () => {
           </ButtonIcon>
         </SheetTrigger>
         <SheetContent side="right" className="w-full md:w-96">
-          <SheetHeader></SheetHeader>
           <nav className="flex flex-col space-y-4 p-4">
             {navLinks.map((link) => (
               <NavLinkButton

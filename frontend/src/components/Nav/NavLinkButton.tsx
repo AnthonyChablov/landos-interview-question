@@ -8,9 +8,10 @@ import { NavLink } from "./navLinks";
 interface NavLinkButtonProps {
   link: NavLink;
   pathname: string;
+  onClick?: () => void; // Add an optional onClick prop
 }
 
-const NavLinkButton = ({ link, pathname }: NavLinkButtonProps) => {
+const NavLinkButton = ({ link, pathname, onClick }: NavLinkButtonProps) => {
   return (
     <ButtonLink
       key={link.id}
@@ -26,6 +27,7 @@ const NavLinkButton = ({ link, pathname }: NavLinkButtonProps) => {
             ${link.type === "black" && "bg-black hover:bg-black/90 text-white"} 
         `
       )}
+      onClick={onClick} // Attach the onClick handler
     >
       <ParagraphText
         size="md"

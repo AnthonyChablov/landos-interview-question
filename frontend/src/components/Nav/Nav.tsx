@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,7 +16,12 @@ import NavLinkButton from "./NavLinkButton";
 import { usePathname } from "next/navigation";
 
 const Nav = () => {
-  const pathname = usePathname();
+  const [isSheetOpen, setIsSheetOpen] = useState(false); // state to track the sheet visibility
+  const pathname = usePathname(); // extract path name from URL
+
+  const handleCloseSheet = () => {
+    setIsSheetOpen(false); // Close the sheet
+  };
 
   return (
     <Container className="flex items-center justify-between py-6 space-x-14">
@@ -35,7 +40,7 @@ const Nav = () => {
       </nav>
 
       {/* Mobile Menu */}
-      <Sheet>
+      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetTrigger asChild className="lg:hidden">
           <ButtonIcon>
             {/* Custom SVG Menu Icon */}
@@ -59,7 +64,12 @@ const Nav = () => {
           <SheetHeader></SheetHeader>
           <nav className="flex flex-col space-y-4 p-4">
             {navLinks.map((link) => (
-              <NavLinkButton key={link.id} link={link} pathname={pathname} />
+              <NavLinkButton
+                key={link.id}
+                link={link}
+                pathname={pathname}
+                onClick={handleCloseSheet} // Close sheet on link click
+              />
             ))}
           </nav>
         </SheetContent>

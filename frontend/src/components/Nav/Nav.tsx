@@ -8,7 +8,7 @@ import {
   SheetHeader,
 } from "@/components/ui/sheet"; // Shadcn Sheet Component
 import Container from "../Layout/Container";
-import wealthbookLogo from "../../../public/wealthbooks.png";
+import FigmaIcon from "../../../public/Figma.png";
 
 // Data object for navigation links with string ids
 const navLinks = [
@@ -25,7 +25,7 @@ const Nav = () => {
         {/* Logo */}
         <div className="text-xl font-bold">
           <Link href="/">
-            <Image src={wealthbookLogo} alt="logo" width={400}></Image>
+            <Image src={FigmaIcon} alt="logo" width={400}></Image>
           </Link>
         </div>
 

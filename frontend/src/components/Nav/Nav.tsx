@@ -19,7 +19,10 @@ const Nav = () => {
   };
 
   return (
-    <Container className="flex items-center justify-between py-6 ">
+    <Container
+      className="flex items-center justify-between 
+      py-6 fixed top-0 left-0 right-0 z-10 bg-white "
+    >
       {/* Logo */}
       <div className="text-xl font-bold">
         <Link href="/" className="w-fit">

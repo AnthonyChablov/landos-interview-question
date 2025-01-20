@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link"; // Assuming you're using Next.js
@@ -9,13 +10,19 @@ import {
 } from "@/components/ui/sheet"; // Shadcn Sheet Component
 import Container from "../Layout/Container";
 import FigmaIcon from "../../../public/Figma.png";
+import ParagraphText from "../Text/ParagraphText";
+import { ButtonLink } from "../Buttons/ButtonIcons";
 
 // Data object for navigation links with string ids
 const navLinks = [
-  { id: "plans", name: "Plans", href: "/#plans" },
-  { id: "about", name: "About", href: "/#about" },
-  { id: "contact", name: "Contact", href: "/contact" },
-  { id: "signin", name: "Sign In", href: "/signin" },
+  { id: "Initio", name: "Initio", href: "/initio" },
+  { id: "Serviços", name: "Serviços", href: "/serviços" },
+  { id: "Communidade", name: "Communidade", href: "/communidade" },
+  { id: "Recursos", name: "Recursos", href: "/recursos" },
+  { id: "Preços", name: "Preços", href: "/preços" },
+  { id: "Contacto", name: "Contacto", href: "/contacto" },
+  { id: "Sign in", name: "Sign In", href: "/signin" },
+  { id: "Registrar", name: "Registrar", href: "/registrar" },
 ];
 
 const Nav = () => {
@@ -24,21 +31,21 @@ const Nav = () => {
       <Container className="flex items-center justify-between py-14 space-x-14">
         {/* Logo */}
         <div className="text-xl font-bold">
-          <Link href="/">
-            <Image src={FigmaIcon} alt="logo" width={400}></Image>
+          <Link href="/" className="w-fit">
+            <Image src={FigmaIcon} width={30} alt="logo"></Image>
           </Link>
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex w-full justify-between items-between">
+        <div className="hidden md:flex w-fit space-x-4 justify-between items-center">
           {navLinks.map((link) => (
-            <Link
+            <ButtonLink
               key={link.id}
               href={link.href}
-              className="text-xl font-semibold text-customBlue hover:text-customBlue "
+              className="bg-gray-200 hover:bg-gray-200/70"
             >
-              {link.name}
-            </Link>
+              <ParagraphText size="sm" text={link.name} />
+            </ButtonLink>
           ))}
         </div>
 

@@ -19,9 +19,7 @@ export function ButtonLink({
     <Button
       asChild
       onClick={onClick}
-      className={cn(
-        `${className}  w-full md:w-fit text-white  hover:bg-customBrightGreen/70`
-      )}
+      className={cn(`${className}  w-full md:w-fit text-black  `)}
     >
       <Link href={href}>{children}</Link>
     </Button>

@@ -42,7 +42,7 @@ const ParagraphText = ({
   const sizeClass = paragraphSizes[size];
 
   return (
-    <div className={cn(`text-customBlue ${className}`)}>
+    <div className={cn(` ${className}`)}>
       <p className={sizeClass}>{text}</p>
       <div className="text-2xl ">{children}</div>
     </div>

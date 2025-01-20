@@ -1,54 +1,44 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link"; // Assuming you're using Next.js
+import Link from "next/link";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetHeader,
-} from "@/components/ui/sheet"; // Shadcn Sheet Component
+} from "@/components/ui/sheet";
 import Container from "../Layout/Container";
 import FigmaIcon from "../../../public/Figma.png";
-import ParagraphText from "../Text/ParagraphText";
-import { usePathname } from "next/navigation";
-import { ButtonIcon } from "../Buttons/ButtonIcons";
-import { ButtonLink } from "../Buttons/ButtonLink";
 import { navLinks } from "./navLinks";
+import { ButtonIcon } from "../Buttons/ButtonIcons";
+import NavLinkButton from "./NavLinkButton";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
   const pathname = usePathname();
+
   return (
     <Container className="flex items-center justify-between py-6 space-x-14">
       {/* Logo */}
       <div className="text-xl font-bold">
         <Link href="/" className="w-fit">
-          <Image src={FigmaIcon} width={27} alt="logo"></Image>
+          <Image src={FigmaIcon} width={27} alt="logo" />
         </Link>
       </div>
 
       {/* Desktop Links */}
-      <nav className="hidden lg:flex w-fit space-x-4 justify-between items-center">
+      <nav className="hidden lg:flex w-fit space-x-3 justify-between items-center">
         {navLinks.map((link) => (
-          <ButtonLink
-            key={link.id}
-            href={link.href}
-            className={` px-5 ${
-              pathname === link.href
-                ? "bg-gray-100 hover:bg-gray-100/90 shadow-none text-black"
-                : " bg-transparent hover:bg-transparent shadow-none "
-            }`}
-          >
-            <ParagraphText className="text-black" size="sm" text={link.name} />
-          </ButtonLink>
+          <NavLinkButton key={link.id} link={link} pathname={pathname} />
         ))}
       </nav>
 
       {/* Mobile Menu */}
       <Sheet>
         <SheetTrigger asChild className="lg:hidden">
-          {/* Custom SVG Menu Icon */}
           <ButtonIcon>
+            {/* Custom SVG Menu Icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-8 h-8"
@@ -69,21 +59,7 @@ const Nav = () => {
           <SheetHeader></SheetHeader>
           <nav className="flex flex-col space-y-4 p-4">
             {navLinks.map((link) => (
-              <ButtonLink
-                key={link.id}
-                href={link.href}
-                className={`px-5 ${
-                  pathname === link.href
-                    ? "bg-gray-100 hover:bg-gray-100/90 shadow-none "
-                    : " bg-transparent hover:bg-transparent shadow-none "
-                }`}
-              >
-                <ParagraphText
-                  className="text-black"
-                  size="lg"
-                  text={link.name}
-                />
-              </ButtonLink>
+              <NavLinkButton key={link.id} link={link} pathname={pathname} />
             ))}
           </nav>
         </SheetContent>

@@ -2,12 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetHeader,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Container from "../Layout/Container";
 import FigmaIcon from "../../../public/Figma.png";
 import { navLinks } from "./navLinks";

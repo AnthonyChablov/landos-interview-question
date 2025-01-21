@@ -12,6 +12,7 @@ interface SuggestionCardProps {
   author: string;
   location: string;
   avatar: StaticImageData;
+  onClick: () => void;
 }
 
 const SuggestionCard = ({
@@ -20,11 +21,13 @@ const SuggestionCard = ({
   author,
   location,
   avatar,
+  onClick,
 }: SuggestionCardProps) => {
   return (
     <div
       key={id}
       className="flex flex-col space-y-4 border-gray-300 border-[1px] p-6 rounded-xl"
+      onClick={onClick}
     >
       <HeaderText
         headerLevel="h3"

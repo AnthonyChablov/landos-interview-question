@@ -17,7 +17,7 @@ export default function Home() {
     setResponse(null);
 
     try {
-      const data = await fetcher<{ response: string }>("/api/chatgpt", {
+      const data = await fetcher<{ response: string }>("", {
         method: "POST",
         body: JSON.stringify({ query }),
       });

@@ -40,9 +40,14 @@ const DynamicHero: React.FC<DynamicHeroProps> = ({
         {loading ? <Loader /> : <QueryInputForm onSubmit={onSubmit} />}
         {/* Display response after query submission */}
         {response && (
-          <div className="mt-6 text-xl text-gray-700">
-            <ParagraphText size="sm">{response}</ParagraphText>
-          </div>
+          <>
+            <Separator size="extraExtraSmall" />
+            <ParagraphText
+              className="text-red-500"
+              text={response}
+              size="sm"
+            ></ParagraphText>
+          </>
         )}
       </Container>
     </section>

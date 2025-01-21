@@ -49,7 +49,7 @@ const QueryInputForm = () => {
               <FormControl>
                 <Input
                   placeholder="A question, a curiosity, anything you would like to know"
-                  className="p-6 rounded-3xl text-2xl"
+                  className="p-6 rounded-3xl text-sm sm:text-lg lg:text-[1rem]"
                   {...field}
                 />
               </FormControl>

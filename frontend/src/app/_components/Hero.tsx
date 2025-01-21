@@ -6,7 +6,7 @@ import Separator from "@/components/Layout/Separator";
 
 const Hero = () => {
   return (
-    <section className="flex items-center justify-center flex-col h-screen bg-customGray">
+    <section className="flex items-center justify-center flex-col h-screen bg-customGray text-center">
       <HeaderText
         className=""
         headerLevel="h1"
@@ -15,7 +15,7 @@ const Hero = () => {
       <Separator className="" size="extraSmall" />
       <ParagraphText
         size="2xl"
-        className=" text-gray-500"
+        className=" text-gray-500 text-"
         text="What would you like to know?"
       />
       <Separator className="" size="small" />

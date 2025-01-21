@@ -17,7 +17,7 @@ const NavLinkButton = ({ link, pathname, onClick }: NavLinkButtonProps) => {
       key={link.id}
       href={link.href}
       className={cn(
-        `px-5 py-2 rounded-xl shadow-none w-fit
+        `px-3 py-1 rounded-xl shadow-none w-fit
             ${
               link.type === "regular" && pathname === link.href
                 ? "hover:bg-gray-200/90 bg-gray-200"

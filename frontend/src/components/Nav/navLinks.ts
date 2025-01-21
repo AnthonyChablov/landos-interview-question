@@ -6,7 +6,7 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-  { id: "Initio", name: "Initio", href: "/initio", type: "regular" },
+  { id: "Initio", name: "Initio", href: "/", type: "regular" },
   { id: "Serviços", name: "Serviços", href: "/servicos", type: "regular" },
   {
     id: "Communidade",

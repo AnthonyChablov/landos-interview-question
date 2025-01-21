@@ -9,6 +9,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        xs: "0.2rem",
+        xxs: "0.625rem",
+      },
       colors: {
         customGray: "#F5F5F5",
         background: "hsl(var(--background))",

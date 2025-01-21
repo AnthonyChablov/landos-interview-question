@@ -5,6 +5,8 @@ interface ParagraphTextProps {
   className?: string;
   text?: string;
   size?:
+    | "xxs"
+    | "xs"
     | "sm"
     | "md"
     | "lg"
@@ -26,6 +28,8 @@ const ParagraphText = ({
   children,
 }: ParagraphTextProps) => {
   const paragraphSizes = {
+    xxs: "text-xxs",
+    xs: "text-xs",
     sm: "text-sm",
     md: "text-md",
     lg: "text-lg",

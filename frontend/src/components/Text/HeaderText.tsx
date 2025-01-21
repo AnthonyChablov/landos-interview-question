@@ -17,7 +17,7 @@ const HeaderText = ({
   const headerSizes = {
     h1: "text-[3.7rem] leading-none",
     h2: "text-5xl",
-    h3: "text-3xl",
+    h3: "text-2xl",
     h4: "text-2xl",
     h5: "text-xl",
     "h1-alt": "text-5xl",

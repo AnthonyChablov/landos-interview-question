@@ -10,9 +10,9 @@ const SuggestionDisplay = () => {
     <section>
       <Separator size="large" />
       <HeaderText header="Suggestions" headerLevel="h2" />
-      <Separator size="extraSmall" />
+      <Separator size="extraExtraSmall" />
       <ParagraphText className="text-gray-500" text="Get an immediate answer" />
-      <Separator size="large" />
+      <Separator size="medium" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <SuggestionCard
           id="1"

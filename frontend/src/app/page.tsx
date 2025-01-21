@@ -1,7 +1,6 @@
 import Container from "@/components/Layout/Container";
-import DynamicHero from "./_components/DynamicHero/DynamicHero";
+import DynamicHeroForm from "./_components/DynamicHeroForm/DynamicHeroForm";
 import SuggestionDisplay from "./_components/SuggestionDisplay/SuggestionsDisplay";
-import Footer from "@/components/Footer/Footer";
 
 /* TODO call api here fetcher function */
 /* TODO hero states for rendering out response from api  */
@@ -10,10 +9,9 @@ import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <>
-      <DynamicHero />
+      <DynamicHeroForm />
       <Container>
         <SuggestionDisplay />
-        <Footer />
       </Container>
     </>
   );

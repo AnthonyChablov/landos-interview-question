@@ -20,17 +20,17 @@ const formSchema = z.object({
     .max(50, { message: "Question must be at most 50 characters." }),
 });
 
-const QueryInputForm = () => {
+interface QueryInputFormProps {
+  onSubmit: (values: z.infer<typeof formSchema>) => void;
+}
+
+const QueryInputForm = ({ onSubmit }: QueryInputFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       query: "",
     },
   });
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values); // Handle the submitted values
-  }
 
   return (
     <Form {...form}>

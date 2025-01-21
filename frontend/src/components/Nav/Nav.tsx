@@ -2,13 +2,20 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import Container from "../Layout/Container";
 import FigmaIcon from "../../../public/Figma.png";
 import { navLinks } from "./navLinks";
 import { ButtonIcon } from "../Buttons/ButtonIcons";
 import NavLinkButton from "./NavLinkButton";
+import Separator from "../Layout/Separator";
 import { usePathname } from "next/navigation";
+import logo from "../../../public/Figma.png";
 
 const Nav = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false); // state to track the sheet visibility
@@ -57,6 +64,11 @@ const Nav = () => {
             </ButtonIcon>
           </SheetTrigger>
           <SheetContent side="right" className="w-full md:w-96">
+            <SheetTitle>
+              <Separator size="extraExtraSmall" />
+              <Image src={FigmaIcon} width={27} alt="logo" />
+              <Separator size="extraExtraSmall" />
+            </SheetTitle>
             <nav className="flex flex-col space-y-4 p-4">
               {navLinks.map((link) => (
                 <NavLinkButton

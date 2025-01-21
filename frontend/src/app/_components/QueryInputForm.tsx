@@ -39,7 +39,7 @@ const QueryInputForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 w-full md:w-6/12 mx-auto"
+        className="space-y-6 w-full md:w-6/12 mx-auto  overflow-hidden rounded-3xl p-1"
       >
         <FormField
           control={form.control}
@@ -49,7 +49,7 @@ const QueryInputForm = () => {
               <FormControl>
                 <Input
                   placeholder="A question, a curiosity, anything you would like to know"
-                  className="p-6 rounded-3xl text-sm sm:text-lg lg:text-[1rem]"
+                  className="p-6 rounded-3xl text-sm sm:text-lg lg:text-[1rem] bg-white"
                   {...field}
                 />
               </FormControl>

@@ -3,6 +3,7 @@ import Container from "../Layout/Container";
 import Image from "next/image";
 import logo from "../../../public/Figma.png";
 import Separator from "../Layout/Separator";
+import ParagraphText from "../Text/ParagraphText";
 
 export default function Footer() {
   return (

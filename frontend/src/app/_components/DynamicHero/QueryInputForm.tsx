@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,8 +16,8 @@ import {
 const formSchema = z.object({
   query: z
     .string()
-    .min(2, { message: "Query must be at least 2 characters." })
-    .max(50, { message: "Query must be at most 50 characters." }),
+    .min(2, { message: "Question must be at least 2 characters." })
+    .max(50, { message: "Question must be at most 50 characters." }),
 });
 
 const QueryInputForm = () => {
@@ -55,11 +54,6 @@ const QueryInputForm = () => {
             </FormItem>
           )}
         />
-
-        {/* Submit Button */}
-        {/*        <Button type="submit" className="w-full rounded-3xl">
-          Submit
-        </Button> */}
       </form>
     </Form>
   );

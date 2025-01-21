@@ -5,9 +5,14 @@ import QueryInputForm from "./QueryInputForm";
 import Separator from "@/components/Layout/Separator";
 import Container from "@/components/Layout/Container";
 
+interface HeroProps {}
+
 const Hero = () => {
   return (
-    <section className="flex items-center  justify-center flex-col h-screen bg-customGray text-center">
+    <section
+      className="flex items-center  justify-center 
+      flex-col h-screen bg-customGray text-center"
+    >
       <Container>
         <HeaderText
           className=""

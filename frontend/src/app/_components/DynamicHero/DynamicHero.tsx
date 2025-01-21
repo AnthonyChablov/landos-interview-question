@@ -5,9 +5,9 @@ import QueryInputForm from "./QueryInputForm";
 import Separator from "@/components/Layout/Separator";
 import Container from "@/components/Layout/Container";
 
-interface HeroProps {}
+interface DynamicHeroProps {}
 
-const Hero = () => {
+const DynamicHero = () => {
   return (
     <section
       className="flex items-center  justify-center 
@@ -32,4 +32,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default DynamicHero;

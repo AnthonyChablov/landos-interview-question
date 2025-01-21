@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface SeparatorProps {
   size?:
+    | "extraExtraSmall"
     | "extraSmall"
     | "small"
     | "medium"
@@ -15,6 +16,7 @@ interface SeparatorProps {
 const Separator = ({ size = "small", className = "" }: SeparatorProps) => {
   // Map size to padding classes
   const sizeClasses = {
+    extraExtraSmall: "py-1",
     extraSmall: "py-2",
     small: "py-3",
     medium: "py-6",

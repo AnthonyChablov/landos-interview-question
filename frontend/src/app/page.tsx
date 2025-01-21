@@ -17,7 +17,7 @@ export default function Home() {
     setResponse(null);
 
     try {
-      const data = await fetcher<{ response: string }>("", {
+      const data = await fetcher<{ response: string }>("/api/ask", {
         method: "POST",
         body: JSON.stringify({ query }),
       });

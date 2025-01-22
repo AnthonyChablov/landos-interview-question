@@ -24,7 +24,12 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, text }) => (
 
 const SocialLinks: React.FC = () => (
   <div className="flex space-x-6">
-    <a href="www.facebook.com" className="hover:opacity-75">
+    <a
+      href="www.facebook.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:opacity-75"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
@@ -37,7 +42,12 @@ const SocialLinks: React.FC = () => (
       </svg>
       <span className="sr-only">Twitter</span>
     </a>
-    <a href="#" className="hover:opacity-75">
+    <a
+      href="www.instagram.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:opacity-75"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
@@ -50,7 +60,12 @@ const SocialLinks: React.FC = () => (
       </svg>{" "}
       <span className="sr-only">Instagram</span>
     </a>
-    <a href="#" className="hover:opacity-75">
+    <a
+      href="www.youtube.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:opacity-75"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
@@ -63,7 +78,12 @@ const SocialLinks: React.FC = () => (
       </svg>
       <span className="sr-only">YouTube</span>
     </a>
-    <a href="#" className="hover:opacity-75">
+    <a
+      href="www.linkedin.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:opacity-75"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         x="0px"

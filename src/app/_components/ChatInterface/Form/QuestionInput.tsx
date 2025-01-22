@@ -46,7 +46,7 @@ const QuestionInput = ({
             <FormItem>
               <FormControl>
                 <Input
-                  placeholder={`${variant === "default" ? "A question, a curiosity, anything you would like to know" : ""} `}
+                  placeholder={`${variant === "default" ? "A question, a curiosity, anything you would like to know" : " "} `}
                   className={`
                     ${variant === "default" && "rounded-3xl"} 
                     ${variant === "alternate" && "rounded-lg"} 

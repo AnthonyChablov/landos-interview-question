@@ -25,7 +25,7 @@ const useChatGPT = (): UseChatGPT => {
     setError(null);
 
     try {
-      const apiResponse = await fetch("/api/chatgpt", {
+      const apiResponse = await fetch("/api/ask", {
         method: "POST",
         body: JSON.stringify({ question }),
         headers: {

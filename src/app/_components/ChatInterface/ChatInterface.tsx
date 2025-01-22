@@ -19,7 +19,7 @@ const ChatInterface = () => {
 
   return (
     <>
-      {false && (
+      {!response && (
         <section>
           <div className="flex items-center justify-center flex-col h-screen bg-customGray text-center">
             <Container>
@@ -58,7 +58,7 @@ const ChatInterface = () => {
       )}
 
       {/* Display Response and Questions after query submission */}
-      {true && (
+      {response && (
         <section>
           <div className="flex items-center justify-center flex-col h-fit bg-customGray text-center">
             <Container>

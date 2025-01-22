@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 // Define the schema for form validation
 export const formSchema = z.object({

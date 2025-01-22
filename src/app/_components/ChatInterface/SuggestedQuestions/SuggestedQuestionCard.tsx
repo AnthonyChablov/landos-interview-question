@@ -26,7 +26,7 @@ const SuggestedQuestionCard = ({
   return (
     <div
       key={id}
-      className="flex flex-col space-y-4 border-gray-300 
+      className="flex flex-col space-y-4 border-gray-300 h-48 justify-between 
         border-[1px] p-6 rounded-xl hover:cursor-pointer hover:bg-gray-50/90 shadow-sm"
       onClick={onClick}
     >

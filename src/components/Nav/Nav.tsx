@@ -15,7 +15,6 @@ import { ButtonIcon } from "../Buttons/ButtonIcons";
 import NavLinkButton from "./NavLinkButton";
 import Separator from "../Layout/Separator";
 import { usePathname } from "next/navigation";
-import logo from "../../../public/Figma.png";
 
 const Nav = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false); // state to track the sheet visibility
@@ -26,7 +25,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-10 bg-white py-6 shadow-sm">
+    <div className="sticky top-0 left-0 right-0 z-10 bg-white py-6 shadow-sm">
       <Container className="flex items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold">

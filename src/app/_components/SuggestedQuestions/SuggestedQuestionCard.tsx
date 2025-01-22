@@ -6,7 +6,7 @@ import ParagraphText from "@/components/Text/ParagraphText";
 import Link from "next/link";
 
 // Define the type for the props
-interface SuggestionCardProps {
+interface SuggestionQuestionCardProps {
   id: string;
   suggestion: string;
   author: string;
@@ -15,14 +15,14 @@ interface SuggestionCardProps {
   onClick: () => void;
 }
 
-const SuggestionCard = ({
+const SuggestedQuestionCard = ({
   id,
   suggestion,
   author,
   location,
   avatar,
   onClick,
-}: SuggestionCardProps) => {
+}: SuggestionQuestionCardProps) => {
   return (
     <div
       key={id}
@@ -62,4 +62,4 @@ const SuggestionCard = ({
   );
 };
 
-export default SuggestionCard;
+export default SuggestedQuestionCard;

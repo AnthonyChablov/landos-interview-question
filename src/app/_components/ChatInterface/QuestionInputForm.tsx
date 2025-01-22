@@ -14,33 +14,33 @@ import {
 
 // Define the schema for form validation
 const formSchema = z.object({
-  query: z
+  question: z
     .string()
     .min(2, { message: "Question must be at least 2 characters." })
     .max(50, { message: "Question must be at most 50 characters." }),
 });
 
 interface QueryInputFormProps {
-  onSubmit: (values: z.infer<typeof formSchema>) => void;
+  onSubmit: (data: { question: string }) => Promise<void>;
 }
 
-const QueryInputForm = ({ onSubmit }: QueryInputFormProps) => {
+const QuestionInputForm = ({ onSubmit }: QueryInputFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      query: "",
+      question: "",
     },
   });
 
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 w-full md:w-6/12 mx-auto  overflow-hidden rounded-3xl p-1"
+        onSubmit={form.handleSubmit(onSubmit)} // This will now pass the form data object to onSubmit
+        className="space-y-6 w-full md:w-6/12 mx-auto overflow-hidden rounded-3xl p-1"
       >
         <FormField
           control={form.control}
-          name="query"
+          name="question"
           render={({ field }) => (
             <FormItem>
               <FormControl>
@@ -59,4 +59,4 @@ const QueryInputForm = ({ onSubmit }: QueryInputFormProps) => {
   );
 };
 
-export default QueryInputForm;
+export default QuestionInputForm;

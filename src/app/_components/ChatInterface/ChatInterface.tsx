@@ -18,7 +18,7 @@ interface ChatInterfaceProps {
 const WINE_TITLE = "Everything about wine";
 const SUBTITLE = "What would you like to know?";
 
-const ChatInterface: React.FC<ChatInterfaceProps> = () => {
+const ChatInterface = ({}: ChatInterfaceProps) => {
   // State and hooks
   const { loading, response, error, handleSubmit } = useChatGPT();
   const [currentQuestion, setCurrentQuestion] = useState<string>("");

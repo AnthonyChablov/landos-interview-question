@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import { formSchema } from "./formSchema";
+import { wineQuestionSchema } from "@/schemas/wineQuestionSchema";
 import {
   Form,
   FormControl,
@@ -23,8 +23,8 @@ const QuestionInput = ({
   onSubmit,
   variant = "default",
 }: QuestionInputProps) => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof wineQuestionSchema>>({
+    resolver: zodResolver(wineQuestionSchema),
     defaultValues: {
       question: "",
     },

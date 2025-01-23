@@ -19,17 +19,12 @@ const ChatInterface = () => {
   // State and hooks
   const { loading, response, error, handleSubmit, history } = useChatGPT();
   const [currentQuestion, setCurrentQuestion] = useState<string>("");
-  const { scrollToTop } = useScrollToTop();
 
   // Event Handlers
   const handleSuggestionClick = async (suggestion: string): Promise<void> => {
     setCurrentQuestion(suggestion);
     handleSubmit({ question: suggestion });
   };
-
-  useEffect(() => {
-    scrollToTop();
-  }, [currentQuestion]);
 
   // Render Methods
   const renderErrorMessage = () => {

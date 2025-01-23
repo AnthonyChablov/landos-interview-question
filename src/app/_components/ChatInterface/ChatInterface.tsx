@@ -17,11 +17,9 @@ const SUBTITLE = "What would you like to know?";
 const ChatInterface = () => {
   // State and hooks
   const { loading, response, error, handleSubmit, history } = useChatGPT();
-  const [currentQuestion, setCurrentQuestion] = useState<string>("");
 
   // Event Handlers
   const handleSuggestionClick = async (suggestion: string): Promise<void> => {
-    setCurrentQuestion(suggestion);
     handleSubmit({ question: suggestion });
   };
 

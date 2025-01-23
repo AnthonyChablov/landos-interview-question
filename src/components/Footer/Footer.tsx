@@ -29,7 +29,7 @@ interface FooterLinkProps {
  */
 const FooterLink: React.FC<FooterLinkProps> = ({ href, text }) => (
   <Link href={href} className="hover:opacity-75">
-    <ParagraphText size="md" text={text} />
+    <ParagraphText size="lg" text={text} />
   </Link>
 );
 
@@ -118,7 +118,7 @@ interface FooterSectionProps {
  */
 const FooterSection: React.FC<FooterSectionProps> = ({ title, links }) => (
   <div className="space-y-4">
-    <ParagraphText size="md" text={title} className="font-medium" />
+    <ParagraphText size="lg" text={title} className="font-medium" />
     <nav className="flex flex-col space-y-2">
       {links.map((link, index) => (
         <FooterLink key={index} href="#" text={link} />

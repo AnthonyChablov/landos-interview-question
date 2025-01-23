@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useChatGPT from "@/hooks/useChatGPT";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";
@@ -27,11 +27,14 @@ const ChatInterface = ({}: ChatInterfaceProps) => {
   const { scrollToTop } = useScrollToTop();
 
   // Event Handlers
-  const handleSuggestionClick = (suggestion: string): void => {
+  const handleSuggestionClick = async (suggestion: string): Promise<void> => {
     setCurrentQuestion(suggestion);
-    handleSubmit({ question: currentQuestion });
-    scrollToTop();
+    handleSubmit({ question: suggestion });
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [currentQuestion]);
 
   // Render Methods
   const renderErrorMessage = () => {

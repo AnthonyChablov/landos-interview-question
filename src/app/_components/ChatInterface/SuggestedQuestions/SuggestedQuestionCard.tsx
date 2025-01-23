@@ -3,7 +3,6 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";
-import Link from "next/link";
 
 // Define the type for the props
 interface SuggestionQuestionCardProps {

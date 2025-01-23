@@ -1,5 +1,6 @@
 // hooks/useChatGPT.ts
 import { useState } from "react";
+import { useScrollToTop } from "./useScrollToTop";
 
 interface ChatHistory {
   question: string;
@@ -19,6 +20,7 @@ const useChatGPT = (): UseChatGPT => {
   const [response, setResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<ChatHistory[]>([]);
+  const { scrollToTop } = useScrollToTop();
 
   const handleSubmit = async ({ question }: { question: string }) => {
     if (!question.trim()) return;
@@ -44,6 +46,7 @@ const useChatGPT = (): UseChatGPT => {
       setError(err instanceof Error ? err.message : "Failed to get response");
     } finally {
       setLoading(false);
+      scrollToTop();
     }
   };
 

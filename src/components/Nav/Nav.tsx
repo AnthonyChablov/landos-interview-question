@@ -16,12 +16,41 @@ import NavLinkButton from "./NavLinkButton";
 import Separator from "../Layout/Separator";
 import { usePathname } from "next/navigation";
 
+/**
+ * Navigation Component
+ *
+ * @description
+ * - Responsive navigation bar with desktop and mobile views
+ * - Uses sheet component for mobile menu
+ * - Dynamically renders navigation links
+ * - Sticky positioning with shadow
+ *
+ * @key Features
+ * - Logo linking to home page
+ * - Responsive design (hidden on mobile, full menu on desktop)
+ * - Mobile menu with slide-out sheet
+ * - Active link highlighting based on current pathname
+ *
+ * @example
+ * <Nav /> // Renders in app layout
+ */
 const Nav = () => {
-  const [isSheetOpen, setIsSheetOpen] = useState(false); // state to track the sheet visibility
-  const pathname = usePathname(); // extract path name from URL
+  /**
+   * Tracks mobile sheet (menu) visibility state
+   */
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
+  /**
+   * Current page pathname for active link detection
+   */
+  const pathname = usePathname();
+
+  /**
+   * Closes the mobile navigation sheet
+   * Used when a link is clicked to dismiss the menu
+   */
   const handleCloseSheet = () => {
-    setIsSheetOpen(false); // Close the sheet
+    setIsSheetOpen(false);
   };
 
   return (
@@ -45,7 +74,7 @@ const Nav = () => {
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger asChild className="lg:hidden">
             <ButtonIcon>
-              {/* Custom SVG Menu Icon */}
+              {/* Hamburger Menu Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-8 h-8"
@@ -62,12 +91,14 @@ const Nav = () => {
               </svg>
             </ButtonIcon>
           </SheetTrigger>
+
           <SheetContent side="right" className="w-full md:w-96">
             <SheetTitle>
               <Separator size="extraExtraSmall" />
               <Image src={logo} width={27} alt="logo" />
               <Separator size="extraExtraSmall" />
             </SheetTitle>
+
             <nav className="flex flex-col space-y-4 p-4">
               {navLinks.map((link) => (
                 <NavLinkButton

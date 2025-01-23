@@ -1,9 +1,27 @@
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Props for the ParagraphText component
+ * Supports flexible text rendering with size variations and optional HTML injection
+ */
 interface ParagraphTextProps {
+  /**
+   * Additional CSS classes to apply to the container
+   * @default ""
+   */
   className?: string;
+
+  /**
+   * Plain text content to display
+   * @default ""
+   */
   text?: string;
+
+  /**
+   * Text size, with responsive breakpoints
+   * @default "lg"
+   */
   size?:
     | "xxs"
     | "xs"
@@ -18,10 +36,39 @@ interface ParagraphTextProps {
     | "6xl"
     | "7xl"
     | "8xl";
+
+  /**
+   * Optional child components to render alongside text
+   */
   children?: ReactNode;
+
+  /**
+   * Allows rendering of HTML content directly (use with caution)
+   * Bypasses standard text rendering
+   */
   dangerouslySetInnerHTML?: { __html: string };
 }
 
+/**
+ * Flexible Paragraph Text Component
+ *
+ * @description
+ * - Supports multiple text sizes
+ * - Can render plain text, children, or raw HTML
+ * - Uses Tailwind CSS for sizing
+ * - Applies conditional class merging
+ *
+ * @example
+ * <ParagraphText
+ *   text="Hello World"
+ *   size="lg"
+ *   className="text-gray-700"
+ * />
+ *
+ * <ParagraphText
+ *   dangerouslySetInnerHTML={{ __html: "<strong>Bold Text</strong>" }}
+ * />
+ */
 const ParagraphText = ({
   className = "",
   text = "",
@@ -29,6 +76,10 @@ const ParagraphText = ({
   children,
   dangerouslySetInnerHTML,
 }: ParagraphTextProps) => {
+  /**
+   * Mapping of size props to Tailwind CSS classes
+   * Includes responsive design considerations
+   */
   const paragraphSizes = {
     xxs: "text-xxs",
     xs: "text-xs",
@@ -44,6 +95,8 @@ const ParagraphText = ({
     "7xl": "text-7xl",
     "8xl": "text-8xl",
   };
+
+  // Determine size class based on input prop
   const sizeClass = paragraphSizes[size];
 
   return (

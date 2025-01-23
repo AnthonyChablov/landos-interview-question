@@ -17,10 +17,6 @@ const ChatInterface = () => {
     setCurrentQuestion(suggestion);
   };
 
-  const renderLoading = (): ReactElement | null => {
-    return loading ? <Loader /> : <QuestionInputForm onSubmit={handleSubmit} />;
-  };
-
   const renderError = (): ReactElement | null => {
     return error ? (
       <>
@@ -33,6 +29,31 @@ const ChatInterface = () => {
       </>
     ) : null;
   };
+
+  if (loading) {
+    return (
+      <>
+        <section className="flex items-center justify-center h-fit bg-customGray ">
+          <Container className="text-center">
+            <Separator size="small" />
+            <HeaderText
+              headerLevel="h1"
+              header="Everything about wine"
+              className="h-fit"
+            />
+            <Separator size="extraSmall" />
+            <ParagraphText
+              size="2xl"
+              className="text-gray-500"
+              text="What would you like to know?"
+            />
+            <Separator size="small" />
+          </Container>
+        </section>
+        <Loader />
+      </>
+    );
+  }
 
   if (!response) {
     return (
@@ -47,8 +68,7 @@ const ChatInterface = () => {
               text="What would you like to know?"
             />
             <Separator size="small" />
-            {/* Loading State */}
-            {renderLoading()}
+            <QuestionInputForm onSubmit={handleSubmit} />
             {/* Error State  */}
             {renderError()}
           </Container>

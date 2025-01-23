@@ -103,13 +103,15 @@ export function randomlyBoldNouns(
     .filter(() => Math.random() * 100 < boldPercentage)
     .map((noun) => noun.trim());
 
+  // Escape special regex characters in the noun
+  const escapeRegExp = (str: string) =>
+    str.replace(/[.*+?^=!:${}()|\[\]\/\\]/g, "\\$&");
+
   // Create a regex to replace nouns with bolded versions
   const boldedText = nounsToBold.reduce((acc, noun) => {
-    const regex = new RegExp(`\\b${noun}\\b`, "gi");
-    return acc.replace(
-      regex,
-      (match) => `<strong classname="text-bold text-black">${match}</strong>`
-    );
+    const escapedNoun = escapeRegExp(noun);
+    const regex = new RegExp(`\\b${escapedNoun}\\b`, "gi");
+    return acc.replace(regex, (match) => `<b>${match}</b>`);
   }, text);
 
   return boldedText;

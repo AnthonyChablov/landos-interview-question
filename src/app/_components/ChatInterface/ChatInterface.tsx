@@ -17,35 +17,6 @@ const ChatInterface = () => {
     setCurrentQuestion(suggestion);
   };
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-customGray">
-        <Loader />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className="flex items-center justify-center h-screen bg-customGray text-center">
-        <Container>
-          <HeaderText headerLevel="h1" header="Everything about wine" />
-          <Separator size="extraSmall" />
-          <ParagraphText
-            size="2xl"
-            className="text-gray-500"
-            text="What would you like to know?"
-          />
-          <Separator size="small" />
-          <ParagraphText className="text-red-500" text={error} size="sm" />
-          <Separator size="small" />
-          <QuestionInputForm onSubmit={handleSubmit} />
-        </Container>
-        <SuggestedQuestions onSuggestionClick={handleSuggestionClick} />
-      </section>
-    );
-  }
-
   if (!response) {
     return (
       <>
@@ -59,7 +30,23 @@ const ChatInterface = () => {
               text="What would you like to know?"
             />
             <Separator size="small" />
-            <QuestionInputForm onSubmit={handleSubmit} />
+            {/* Loading State */}
+            {loading ? (
+              <Loader />
+            ) : (
+              <QuestionInputForm onSubmit={handleSubmit} />
+            )}
+            {/* Error State  */}
+            {error && (
+              <>
+                <Separator size="extraSmall" />{" "}
+                <ParagraphText
+                  className="text-red-500"
+                  text={`An Error Has Occured: ${error}`}
+                  size="sm"
+                />
+              </>
+            )}
           </Container>
         </section>
         <SuggestedQuestions onSuggestionClick={handleSuggestionClick} />

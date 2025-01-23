@@ -20,3 +20,11 @@ export async function fetcher<T>(
     throw error;
   }
 }
+
+export function capitalizeFirstLetter(str: string): string {
+  if (!str) {
+    return str; // Handle empty or null strings
+  }
+
+  return str[0].toUpperCase() + str.slice(1);
+}

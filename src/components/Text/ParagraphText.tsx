@@ -19,6 +19,7 @@ interface ParagraphTextProps {
     | "7xl"
     | "8xl";
   children?: ReactNode;
+  dangerouslySetInnerHTML?: { __html: string };
 }
 
 const ParagraphText = ({
@@ -26,6 +27,7 @@ const ParagraphText = ({
   text = "",
   size = "lg",
   children,
+  dangerouslySetInnerHTML,
 }: ParagraphTextProps) => {
   const paragraphSizes = {
     xxs: "text-xxs",
@@ -42,13 +44,21 @@ const ParagraphText = ({
     "7xl": "text-7xl",
     "8xl": "text-8xl",
   };
-
   const sizeClass = paragraphSizes[size];
 
   return (
-    <div className={cn(`${className}`)}>
-      <p className={sizeClass}>{text}</p>
-      <div className="text-2xl ">{children}</div>
+    <div className={cn(className)}>
+      {dangerouslySetInnerHTML ? (
+        <p
+          className={sizeClass}
+          dangerouslySetInnerHTML={dangerouslySetInnerHTML}
+        />
+      ) : (
+        <>
+          <p className={sizeClass}>{text}</p>
+          {children && <div className="text-2xl">{children}</div>}
+        </>
+      )}
     </div>
   );
 };

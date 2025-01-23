@@ -1,16 +1,37 @@
 import { z } from "zod";
 
-// Wine Question Validation Schema
+/**
+ * Zod Schema for Wine Question Validation
+ *
+ * @description
+ * Comprehensive validation schema for wine-related questions
+ * - Ensures question quality and relevance
+ * - Prevents generic, inappropriate, or low-effort inputs
+ * - Provides detailed error messages
+ *
+ * @key Validation Criteria
+ * - Minimum length: 5 characters
+ * - Maximum length: 500 characters
+ * - Prevents generic greetings, fillers, and non-specific inputs
+ * - Blocks repetitive or meaningless character patterns
+ *
+ * @example
+ * // Valid input
+ * const validQuestion = "What are the best food pairings for Cabernet Sauvignon?"
+ *
+ * // Invalid inputs
+ * const shortQuestion = "hi"
+ * const repetitiveQuestion = "blah blah"
+ */
 export const wineQuestionSchema = z.object({
   question: z
     .string()
     .trim()
     .min(5, { message: "Question must be at least 5 characters." })
     .max(500, { message: "Question must be at most 500 characters." })
-    // Optional: Add more specific validation
     .refine(
       (question) => {
-        // Prevent overly generic or inappropriate questions
+        // Comprehensive list of forbidden input patterns
         const forbiddenPatterns = [
           // Greetings and basic interactions
           /^\s*hi+\s*$/i,
@@ -56,16 +77,33 @@ export const wineQuestionSchema = z.object({
           // Very short, potentially meaningless inputs
           /^[a-z]{1,2}$/i,
         ];
+
         return !forbiddenPatterns.some((pattern) => pattern.test(question));
       },
       { message: "Please ask a specific question about wine." }
     ),
 });
 
-// Type inference for TypeScript
+/**
+ * TypeScript type inference from Zod schema
+ * Automatically generates a type based on the schema
+ */
 export type WineQuestionType = z.infer<typeof wineQuestionSchema>;
 
-// Optional: Additional validation utility functions
+/**
+ * Utility function to validate wine questions
+ *
+ * @param question - Input question to validate
+ * @returns Validation result with success status and data/errors
+ *
+ * @example
+ * const result = validateWineQuestion("Best Merlot regions?")
+ * if (result.success) {
+ *   // Process valid question
+ * } else {
+ *   // Handle validation errors
+ * }
+ */
 export const validateWineQuestion = (question: string) => {
   return wineQuestionSchema.safeParse({ question });
 };

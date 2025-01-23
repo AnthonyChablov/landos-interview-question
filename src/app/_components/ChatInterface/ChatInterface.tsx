@@ -9,6 +9,7 @@ import Container from "@/components/Layout/Container";
 import Loader from "@/app/_components/Loader/Loader";
 import SuggestedQuestions from "./SuggestedQuestions/SuggestedQuestions";
 import { capitalizeFirstLetter } from "@/lib/utils";
+import { randomlyBoldNouns } from "@/lib/utils";
 
 // Constant content
 const WINE_TITLE = "Everything about wine";
@@ -100,8 +101,12 @@ const ChatInterface = () => {
               <ParagraphText
                 size="lg"
                 className="text-gray-700"
-                text={prompt.response}
-              />
+                dangerouslySetInnerHTML={{
+                  __html: randomlyBoldNouns(prompt.response),
+                }}
+              >
+                {randomlyBoldNouns(prompt.response)}
+              </ParagraphText>
               <Separator size="extraSmall" />
             </React.Fragment>
           );

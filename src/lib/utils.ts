@@ -92,7 +92,7 @@ export function capitalizeFirstLetter(str: string): string {
  */
 export function randomlyBoldNouns(
   text: string,
-  boldPercentage: number = 50
+  boldPercentage: number = 25
 ): string {
   // Use compromise NLP library to identify nouns
   const doc = compromise(text);
@@ -111,5 +111,3 @@ export function randomlyBoldNouns(
 
   return boldedText;
 }
-
-export default randomlyBoldNouns;

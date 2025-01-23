@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useChatGPT from "@/hooks/useChatGPT";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";
@@ -8,7 +8,6 @@ import Separator from "@/components/Layout/Separator";
 import Container from "@/components/Layout/Container";
 import Loader from "@/app/_components/Loader/Loader";
 import SuggestedQuestions from "./SuggestedQuestions/SuggestedQuestions";
-import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
 // Constant content

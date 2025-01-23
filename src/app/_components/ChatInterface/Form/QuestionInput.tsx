@@ -4,6 +4,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
+import searchIcon from "@/assets/search.png";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { wineQuestionSchema } from "@/schemas/wineQuestionSchema";
 import {
@@ -35,7 +37,7 @@ const QuestionInput = ({
       <form
         onSubmit={form.handleSubmit(onSubmit)} // This will now pass the form data object to onSubmit
         className={cn(`
-            ${variant === "default" && "md:w-6/12 mx-auto rounded-3xl"} 
+            ${variant === "default" && "md:w-6/12 mx-auto rounded-full"} 
             ${variant === "alternate" && " rounded-lg"}
             space-y-6 w-full overflow-hidden p-1`)}
       >
@@ -45,14 +47,26 @@ const QuestionInput = ({
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input
-                  placeholder={`${variant === "default" ? "A question, a curiosity, anything you would like to know" : " "} `}
-                  className={`
-                    ${variant === "default" && "rounded-3xl"} 
+                <div className="relative h-fit w-full flex items-center justify-between">
+                  <Input
+                    placeholder={`${variant === "default" ? "A question, a curiosity, anything you would like to know" : " "} `}
+                    className={`
+                    ${variant === "default" && "rounded-full"} 
                     ${variant === "alternate" && "rounded-lg"} 
-                    p-6  text-sm sm:text-lg lg:text-[1rem] bg-white`}
-                  {...field}
-                />
+                      py-8 px-6  text-sm sm:text-lg lg:text-[1rem] bg-white
+                       
+                    `}
+                    {...field}
+                  />
+                  <Image
+                    className={`absolute right-6 top-1/2 transform 
+                        -translate-y-1/2 text-gray-500 z-10
+                        ${variant === "alternate" && "hidden"} 
+                      `}
+                    src={searchIcon}
+                    alt="searchIcon"
+                  />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>

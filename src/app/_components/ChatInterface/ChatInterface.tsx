@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import useChatGPT from "@/hooks/useChatGPT";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";

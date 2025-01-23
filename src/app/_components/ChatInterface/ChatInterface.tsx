@@ -1,20 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";
 import QuestionInputForm from "./Form/QuestionInput";
 import Separator from "@/components/Layout/Separator";
 import Container from "@/components/Layout/Container";
-import Loader from "@/components/Layout/Loader";
+import Loader from "@/app/_components/Loader/Loader";
 import SuggestedQuestions from "./SuggestedQuestions/SuggestedQuestions";
 import useChatGPT from "../../../hooks/useChatGPT";
 
 const ChatInterface = () => {
   const { loading, response, error, handleSubmit } = useChatGPT();
-  const [currentQuestion, setCurrentQuestion] = useState("");
+  const [currentQuestion, setCurrentQuestion] = useState<string>("");
 
-  const handleSuggestionClick = (suggestion: string) => {
+  const handleSuggestionClick = (suggestion: string): void => {
     setCurrentQuestion(suggestion);
+  };
+
+  const renderLoading = (): ReactElement | null => {
+    return loading ? <Loader /> : <QuestionInputForm onSubmit={handleSubmit} />;
+  };
+
+  const renderError = (): ReactElement | null => {
+    return error ? (
+      <>
+        <Separator size="extraSmall" />
+        <ParagraphText
+          className="text-red-500"
+          text={`An Error Has Occurred: ${error}`}
+          size="sm"
+        />
+      </>
+    ) : null;
   };
 
   if (!response) {
@@ -31,22 +48,9 @@ const ChatInterface = () => {
             />
             <Separator size="small" />
             {/* Loading State */}
-            {loading ? (
-              <Loader />
-            ) : (
-              <QuestionInputForm onSubmit={handleSubmit} />
-            )}
+            {renderLoading()}
             {/* Error State  */}
-            {error && (
-              <>
-                <Separator size="extraSmall" />{" "}
-                <ParagraphText
-                  className="text-red-500"
-                  text={`An Error Has Occured: ${error}`}
-                  size="sm"
-                />
-              </>
-            )}
+            {renderError()}
           </Container>
         </section>
         <SuggestedQuestions onSuggestionClick={handleSuggestionClick} />
@@ -54,6 +58,7 @@ const ChatInterface = () => {
     );
   }
 
+  /* If Response successfully returned from server */
   return (
     <>
       <section className="flex items-center justify-center h-fit bg-customGray ">

@@ -43,6 +43,7 @@ const SuggestedQuestionCard = ({
           width={64}
           height={64}
           className="rounded-full object-cover"
+          placeholder="blur"
         />
         {/* Content Section */}
         <div className="flex-grow">

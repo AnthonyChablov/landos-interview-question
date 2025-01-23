@@ -172,7 +172,12 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             {/* Logo and social links */}
             <Link href="/" className="flex items-center space-x-2">
-              <Image src={logo} alt="Logo" className="h-8 w-8" />
+              <Image
+                src={logo}
+                alt="Logo"
+                className="h-8 w-8"
+                placeholder="blur"
+              />
             </Link>
             <Separator size="extraExtraSmall" />
             <SocialLinks />

@@ -71,6 +71,7 @@ const QuestionInput = ({
                       `}
                     src={searchIcon}
                     alt="searchIcon"
+                    placeholder="blur"
                   />
                 </div>
               </FormControl>

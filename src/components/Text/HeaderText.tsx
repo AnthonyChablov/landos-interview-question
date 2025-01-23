@@ -57,7 +57,7 @@ const HeaderText = ({
    * Includes responsive design considerations
    */
   const headerSizes = {
-    h1: " text-4xl lg:text-[3.7rem] leading-none ",
+    h1: " text-5xl lg:text-[3.7rem] leading-none ",
     h2: "text-3xl lg:text-5xl",
     h3: "text-xl lg:text-2xl",
     h4: "text-xl",

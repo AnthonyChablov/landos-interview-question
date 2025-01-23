@@ -106,7 +106,10 @@ export function randomlyBoldNouns(
   // Create a regex to replace nouns with bolded versions
   const boldedText = nounsToBold.reduce((acc, noun) => {
     const regex = new RegExp(`\\b${noun}\\b`, "gi");
-    return acc.replace(regex, (match) => `<strong>${match}</strong>`);
+    return acc.replace(
+      regex,
+      (match) => `<strong classname="text-bold text-black">${match}</strong>`
+    );
   }, text);
 
   return boldedText;

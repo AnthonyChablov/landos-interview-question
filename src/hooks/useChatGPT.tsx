@@ -15,7 +15,7 @@ export interface UseChatGPT {
 }
 
 const useChatGPT = (): UseChatGPT => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [response, setResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<ChatHistory[]>([]);

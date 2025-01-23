@@ -58,7 +58,7 @@ const ChatInterface = () => {
     );
   }
 
-  /* If Response successfully returned from server */
+  /* If Response successful display result directly in interface */
   return (
     <>
       <section className="flex items-center justify-center h-fit bg-customGray ">

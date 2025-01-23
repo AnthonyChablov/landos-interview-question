@@ -39,7 +39,7 @@ const QuestionInput = ({
         className={cn(`
             ${variant === "default" && "md:w-6/12 mx-auto rounded-full"} 
             ${variant === "alternate" && " rounded-lg"}
-            space-y-6 w-full overflow-hidden p-1`)}
+            space-y-6 w-full  p-1`)}
       >
         <FormField
           control={form.control}
@@ -47,14 +47,20 @@ const QuestionInput = ({
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <div className="relative h-fit w-full flex items-center justify-between">
+                <div
+                  className="relative h-fit w-full flex 
+                    items-center rounded-full justify-between"
+                >
                   <Input
-                    placeholder={`${variant === "default" ? "A question, a curiosity, anything you would like to know" : " "} `}
+                    placeholder={`${
+                      variant === "default"
+                        ? "A question, a curiosity, anything you would like to know"
+                        : " "
+                    } `}
                     className={`
                     ${variant === "default" && "rounded-full"} 
                     ${variant === "alternate" && "rounded-lg"} 
                       py-8 px-6  text-sm sm:text-lg lg:text-[1rem] bg-white
-                       
                     `}
                     {...field}
                   />

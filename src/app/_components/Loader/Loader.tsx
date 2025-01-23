@@ -6,7 +6,7 @@ import Container from "@/components/Layout/Container";
 const Loader = () => {
   return (
     <Container>
-      <Separator size="large" />
+      <Separator size="small" />
       <Skeleton className="h-10 w-3/4 mb-4 text-black font-medium" />
       <Separator size="extraSmall" />
       <div className="space-y-4">

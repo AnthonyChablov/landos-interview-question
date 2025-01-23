@@ -104,9 +104,7 @@ const ChatInterface = () => {
                 dangerouslySetInnerHTML={{
                   __html: randomlyBoldNouns(prompt.response),
                 }}
-              >
-                {randomlyBoldNouns(prompt.response)}
-              </ParagraphText>
+              ></ParagraphText>
               <Separator size="extraSmall" />
             </React.Fragment>
           );

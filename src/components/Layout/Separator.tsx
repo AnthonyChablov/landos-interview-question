@@ -1,7 +1,16 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
+/**
+ * Props for the Separator component
+ * Provides configurable spacing between elements
+ */
 interface SeparatorProps {
+  /**
+   * Defines the size of the separator
+   * Controls vertical padding to create spacing
+   * @default "small"
+   */
   size?:
     | "extraExtraSmall"
     | "extraSmall"
@@ -9,12 +18,30 @@ interface SeparatorProps {
     | "medium"
     | "large"
     | "extraLarge"
-    | "extraExtraLarge"; // Optional size prop
+    | "extraExtraLarge";
+
+  /**
+   * Additional CSS classes to apply to the separator
+   * @default ""
+   */
   className?: string;
 }
 
+/**
+ * Separator Component
+ *
+ * @description
+ * - Creates vertical spacing between elements
+ * - Supports customizable sizes with Tailwind CSS padding classes
+ * - Allows additional styling via `className` prop
+ *
+ * @example
+ * <Separator size="medium" className="bg-gray-200" />
+ */
 const Separator = ({ size = "small", className = "" }: SeparatorProps) => {
-  // Map size to padding classes
+  /**
+   * Mapping of size values to Tailwind CSS padding classes
+   */
   const sizeClasses = {
     extraExtraSmall: "py-1",
     extraSmall: "py-2",
@@ -25,7 +52,7 @@ const Separator = ({ size = "small", className = "" }: SeparatorProps) => {
     extraExtraLarge: "py-36",
   };
 
-  return <div className={cn(sizeClasses[size] + "" + className)}></div>;
+  return <div className={cn(sizeClasses[size] + " " + className)}></div>;
 };
 
 export default Separator;

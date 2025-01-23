@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, ReactElement } from "react";
+import React, { useState } from "react";
+import useChatGPT from "@/hooks/useChatGPT";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";
 import QuestionInputForm from "./Form/QuestionInput";
@@ -7,17 +8,28 @@ import Separator from "@/components/Layout/Separator";
 import Container from "@/components/Layout/Container";
 import Loader from "@/app/_components/Loader/Loader";
 import SuggestedQuestions from "./SuggestedQuestions/SuggestedQuestions";
-import useChatGPT from "../../../hooks/useChatGPT";
 
-const ChatInterface = () => {
+// Types
+interface ChatInterfaceProps {
+  // Add any props if needed
+}
+
+// Constant content
+const WINE_TITLE = "Everything about wine";
+const SUBTITLE = "What would you like to know?";
+
+const ChatInterface: React.FC<ChatInterfaceProps> = () => {
+  // State and hooks
   const { loading, response, error, handleSubmit } = useChatGPT();
   const [currentQuestion, setCurrentQuestion] = useState<string>("");
 
+  // Event Handlers
   const handleSuggestionClick = (suggestion: string): void => {
     setCurrentQuestion(suggestion);
   };
 
-  const renderError = (): ReactElement | null => {
+  // Render Methods
+  const renderErrorMessage = () => {
     return error ? (
       <>
         <Separator size="extraSmall" />
@@ -30,26 +42,23 @@ const ChatInterface = () => {
     ) : null;
   };
 
+  const renderHeader = () => (
+    <section className="flex items-center justify-center h-fit bg-customGray">
+      <Container className="text-center">
+        <Separator size="small" />
+        <HeaderText headerLevel="h1" header={WINE_TITLE} className="h-fit" />
+        <Separator size="extraSmall" />
+        <ParagraphText size="2xl" className="text-gray-500" text={SUBTITLE} />
+        <Separator size="small" />
+      </Container>
+    </section>
+  );
+
+  // Conditional Renders
   if (loading) {
     return (
       <>
-        <section className="flex items-center justify-center h-fit bg-customGray ">
-          <Container className="text-center">
-            <Separator size="small" />
-            <HeaderText
-              headerLevel="h1"
-              header="Everything about wine"
-              className="h-fit"
-            />
-            <Separator size="extraSmall" />
-            <ParagraphText
-              size="2xl"
-              className="text-gray-500"
-              text="What would you like to know?"
-            />
-            <Separator size="small" />
-          </Container>
-        </section>
+        {renderHeader()}
         <Loader />
       </>
     );
@@ -58,19 +67,18 @@ const ChatInterface = () => {
   if (!response) {
     return (
       <>
-        <section className="flex items-center justify-center  h-screen bg-customGray text-center">
+        <section className="flex items-center justify-center h-screen bg-customGray text-center">
           <Container>
-            <HeaderText headerLevel="h1" header="Everything about wine" />
+            <HeaderText headerLevel="h1" header={WINE_TITLE} />
             <Separator size="extraSmall" />
             <ParagraphText
               size="2xl"
               className="text-gray-500"
-              text="What would you like to know?"
+              text={SUBTITLE}
             />
             <Separator size="small" />
             <QuestionInputForm onSubmit={handleSubmit} />
-            {/* Error State  */}
-            {renderError()}
+            {renderErrorMessage()}
           </Container>
         </section>
         <SuggestedQuestions onSuggestionClick={handleSuggestionClick} />
@@ -78,26 +86,10 @@ const ChatInterface = () => {
     );
   }
 
-  /* If Response successful display result directly in interface */
+  // Main Response Render
   return (
     <>
-      <section className="flex items-center justify-center h-fit bg-customGray ">
-        <Container className="text-center">
-          <Separator size="small" />
-          <HeaderText
-            headerLevel="h1"
-            header="Everything about wine"
-            className="h-fit"
-          />
-          <Separator size="extraSmall" />
-          <ParagraphText
-            size="2xl"
-            className="text-gray-500"
-            text="What would you like to know?"
-          />
-          <Separator size="small" />
-        </Container>
-      </section>
+      {renderHeader()}
       <Container>
         <Separator size="large" />
         <ParagraphText

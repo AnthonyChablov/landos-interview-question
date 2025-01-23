@@ -2,7 +2,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { wineQuestionSchema } from "@/schemas/wineQuestionSchema";
-import { z } from "zod";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,

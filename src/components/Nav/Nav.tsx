@@ -65,7 +65,7 @@ const Nav = () => {
           <SheetContent side="right" className="w-full md:w-96">
             <SheetTitle>
               <Separator size="extraExtraSmall" />
-              <Image src={FigmaIcon} width={27} alt="logo" />
+              <Image src={logo} width={27} alt="logo" />
               <Separator size="extraExtraSmall" />
             </SheetTitle>
             <nav className="flex flex-col space-y-4 p-4">

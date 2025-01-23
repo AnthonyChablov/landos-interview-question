@@ -11,16 +11,11 @@ import SuggestedQuestions from "./SuggestedQuestions/SuggestedQuestions";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
-// Types
-interface ChatInterfaceProps {
-  // Add any props if needed
-}
-
 // Constant content
 const WINE_TITLE = "Everything about wine";
 const SUBTITLE = "What would you like to know?";
 
-const ChatInterface = ({}: ChatInterfaceProps) => {
+const ChatInterface = () => {
   // State and hooks
   const { loading, response, error, handleSubmit, history } = useChatGPT();
   const [currentQuestion, setCurrentQuestion] = useState<string>("");

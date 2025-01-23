@@ -1,3 +1,31 @@
+// api/ask/route.ts
+import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export async function POST(request: NextRequest) {
+  try {
+    const { question } = await request.json();
+
+    const completion = await openai.chat.completions.create({
+      messages: [{ role: "user", content: question }],
+      model: "gpt-3.5-turbo",
+    });
+
+    return NextResponse.json({
+      response: completion.choices[0].message.content,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to get response" },
+      { status: 500 }
+    );
+  }
+}
+
 // hooks/useChatGPT.ts
 import { useState } from "react";
 
@@ -6,12 +34,12 @@ interface ChatHistory {
   response: string;
 }
 
-interface UseChatGPT {
+export interface UseChatGPT {
   loading: boolean;
   response: string | null;
   error: string | null;
   history: ChatHistory[];
-  handleSubmit: ({ question }: { question: string }) => Promise<void>;
+  handleSubmit: (params: { question: string }) => Promise<void>;
 }
 
 const useChatGPT = (): UseChatGPT => {
@@ -21,28 +49,27 @@ const useChatGPT = (): UseChatGPT => {
   const [history, setHistory] = useState<ChatHistory[]>([]);
 
   const handleSubmit = async ({ question }: { question: string }) => {
+    if (!question.trim()) return;
+
     setLoading(true);
     setError(null);
 
     try {
       const apiResponse = await fetch("/api/ask", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
 
-      const data = await apiResponse.json();
+      if (!apiResponse.ok) throw new Error("API request failed");
 
-      if (data.error) {
-        setError(data.error);
-      } else {
-        setResponse(data.response);
-        setHistory((prev) => [...prev, { question, response: data.response }]);
-      }
+      const data = await apiResponse.json();
+      if (data.error) throw new Error(data.error);
+
+      setResponse(data.response);
+      setHistory((prev) => [...prev, { question, response: data.response }]);
     } catch (err) {
-      setError("An error occurred while fetching the response");
+      setError(err instanceof Error ? err.message : "Failed to get response");
     } finally {
       setLoading(false);
     }

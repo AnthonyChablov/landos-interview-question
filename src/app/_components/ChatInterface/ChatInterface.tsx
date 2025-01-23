@@ -26,6 +26,7 @@ const ChatInterface = ({}: ChatInterfaceProps) => {
   // Event Handlers
   const handleSuggestionClick = (suggestion: string): void => {
     setCurrentQuestion(suggestion);
+    handleSubmit({ question: currentQuestion });
   };
 
   // Render Methods

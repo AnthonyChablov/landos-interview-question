@@ -4,7 +4,7 @@ import SuggestedQuestionCard from "./SuggestedQuestionCard";
 import Separator from "@/components/Layout/Separator";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";
-import avatar from "../../../../../public/avatar.png";
+import avatar from "@/assets/avatar.png";
 import Container from "@/components/Layout/Container";
 import { suggestions } from "./suggestions";
 

@@ -9,7 +9,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import Container from "../Layout/Container";
-import FigmaIcon from "../../../public/Figma.png";
+import logo from "@/assets/Figma.png";
 import { navLinks } from "./navLinks";
 import { ButtonIcon } from "../Buttons/ButtonIcons";
 import NavLinkButton from "./NavLinkButton";
@@ -30,7 +30,7 @@ const Nav = () => {
         {/* Logo */}
         <div className="text-xl font-bold">
           <Link href="/" className="w-fit">
-            <Image src={FigmaIcon} width={27} alt="logo" />
+            <Image src={logo} width={27} alt="logo" />
           </Link>
         </div>
 

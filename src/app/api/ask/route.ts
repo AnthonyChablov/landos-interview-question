@@ -57,6 +57,7 @@ export async function POST(request: NextRequest) {
           content: question,
         },
       ],
+      store: true,
       max_tokens: 300,
       temperature: 0.7,
       stream: false,
@@ -66,6 +67,8 @@ export async function POST(request: NextRequest) {
     const responseText =
       chatCompletion.choices[0]?.message?.content ||
       "I couldn't generate a response about wine.";
+
+    console.log(responseText);
 
     // Return the response
     return NextResponse.json({

@@ -64,6 +64,7 @@ const ChatInterface = ({}: ChatInterfaceProps) => {
     );
   }
 
+  // Initial Response Render
   if (!response) {
     return (
       <>

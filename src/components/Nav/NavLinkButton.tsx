@@ -32,8 +32,8 @@ const NavLinkButton = ({ link, pathname, onClick }: NavLinkButtonProps) => {
       <ParagraphText
         size="md"
         className={`
-            ${link.type === "regular" && "text-black"}
-            ${link.type === "gray" && "text-black"}
+            ${link.type === "regular" && "text-gray-800"}
+            ${link.type === "gray" && "text-gray-800"}
             ${link.type === "black" && "text-white"}
         `}
         text={link.name}

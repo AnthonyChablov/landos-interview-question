@@ -98,7 +98,7 @@ const ChatInterface = () => {
         {history.map((prompt, index) => {
           return (
             <React.Fragment key={`${prompt}-${index}`}>
-              <Separator size="small" />
+              <Separator size="large" />
               <ParagraphText
                 size="2xl"
                 className="text-black font-medium"

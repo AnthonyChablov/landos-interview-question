@@ -92,23 +92,28 @@ const Nav = () => {
             </ButtonIcon>
           </SheetTrigger>
 
-          <SheetContent side="right" className="w-full md:w-96">
-            <SheetTitle>
-              <Separator size="extraExtraSmall" />
-              <Image src={logo} width={27} alt="logo" />
-              <Separator size="extraExtraSmall" />
-            </SheetTitle>
+          <SheetContent
+            side="right"
+            className="w-full md:w-96 h-full overflow-auto"
+          >
+            <Container className="flex items-start justify-start flex-col">
+              <SheetTitle>
+                <Separator size="extraExtraSmall" />
+                <Image src={logo} width={27} alt="logo" className=" " />
+                <Separator size="extraExtraSmall" />
+              </SheetTitle>
 
-            <nav className="flex flex-col space-y-4 p-4">
-              {navLinks.map((link) => (
-                <NavLinkButton
-                  key={link.id}
-                  link={link}
-                  pathname={pathname}
-                  onClick={handleCloseSheet} // Close sheet on link click
-                />
-              ))}
-            </nav>
+              <nav className="flex flex-col space-y-4 py-10">
+                {navLinks.map((link) => (
+                  <NavLinkButton
+                    key={link.id}
+                    link={link}
+                    pathname={pathname}
+                    onClick={handleCloseSheet} // Close sheet on link click
+                  />
+                ))}
+              </nav>
+            </Container>
           </SheetContent>
         </Sheet>
       </Container>

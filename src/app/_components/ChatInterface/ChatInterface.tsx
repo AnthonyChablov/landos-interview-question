@@ -12,7 +12,6 @@ import { capitalizeFirstLetter } from "@/lib/utils";
 import { randomlyBoldNouns } from "@/lib/utils";
 import { RenderHeader } from "./Render/RenderHeader";
 import ErrorMessage from "@/components/Layout/ErrorMessage";
-import Providers from "@/provider/Providers";
 
 /**
  * ChatInterface Component

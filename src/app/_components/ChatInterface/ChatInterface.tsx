@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import useChatGPT from "@/hooks/useChatGPT";
 import Hero from "./Hero/Hero";
@@ -11,6 +10,7 @@ import ErrorMessage from "@/components/Layout/ErrorMessage";
 import LoadingContent from "../Loader/LoadingContent";
 import LoadingInput from "../Loader/LoadingInput";
 import ChatDisplayCard from "./ChatDisplay/ChatDisplayCard";
+import ParagraphText from "@/components/Text/ParagraphText";
 
 const ChatInterface = () => {
   const { loading, response, error, handleSubmit, history } = useChatGPT();
@@ -52,6 +52,12 @@ const ChatInterface = () => {
             />
           ))}
           <Separator size="small" />
+          <ParagraphText
+            size="xl"
+            className=""
+            text="What would you like to know:"
+          />
+          <Separator size="extraExtraSmall" />
           <QuestionInputForm onSubmit={handleSubmit} variant="alternate" />
           <Separator size="large" />
         </Container>

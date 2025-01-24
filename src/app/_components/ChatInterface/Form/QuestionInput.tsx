@@ -85,7 +85,6 @@ const QuestionInput = ({
                     `}
                     {...field}
                   />
-
                   <Image
                     className={`absolute right-6 top-1/2 transform bg-white 
                         -translate-y-1/2 text-gray-500 z-10

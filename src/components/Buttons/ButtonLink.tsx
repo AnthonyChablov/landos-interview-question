@@ -54,10 +54,14 @@ export function ButtonLink({
       asChild
       onClick={onClick}
       className={cn(
-        `${className}  w-full md:w-fit text-white  hover:bg-customBrightGreen/70`
+        `${className} w-full md:w-fit text-white 
+        transition-all duration-300 ease-in-out
+        `
       )}
     >
-      <Link href={href}>{children}</Link>
+      <Link className="" href={href}>
+        {children}
+      </Link>
     </Button>
   );
 }

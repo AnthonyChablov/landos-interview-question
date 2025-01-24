@@ -21,7 +21,7 @@ const NavLinkButton = ({ link, pathname, onClick }: NavLinkButtonProps) => {
             ${
               link.type === "regular" && pathname === link.href
                 ? "hover:bg-gray-200/90 bg-gray-200"
-                : "bg-transparent hover:bg-none"
+                : "bg-transparent hover:bg-none hover:bg-gray-200/90"
             } 
             ${link.type === "gray" && "bg-gray-200 hover:bg-gray-300 text-black border-[1px] border-gray-500"} 
             ${link.type === "black" && "bg-black hover:bg-black/90 text-white"} 

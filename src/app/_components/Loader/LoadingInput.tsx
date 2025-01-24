@@ -30,7 +30,7 @@ const LoadingInput = () => {
       ref={container}
       className="md:w-6/12 mx-auto  flex items-center justify-center"
     >
-      <Skeleton className=" w-full py-7 px-6 bg-gray-300  rounded-full flex justify-end items-end">
+      <Skeleton className=" w-full py-7 px-6   rounded-full flex justify-end items-end">
         <Image
           className={` text-gray-900 `}
           src={searchIcon}

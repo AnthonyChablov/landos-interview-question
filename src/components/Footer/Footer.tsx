@@ -202,7 +202,8 @@ const Footer: React.FC = () => {
                 src={logo}
                 alt="Logo"
                 className="h-8 w-8"
-                placeholder="blur"
+                width={40}
+                height={40}
               />
             </Link>
             <Separator size="extraExtraSmall" />

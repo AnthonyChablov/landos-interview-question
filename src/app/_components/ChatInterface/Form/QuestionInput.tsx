@@ -82,7 +82,6 @@ const QuestionInput = ({
                       ${variant === "alternate" && "rounded-lg"} 
                       py-8 px-6 text-md bg-white
                       border-[1px] border-gray-300 hover:bg-gray-50/90
-                      
                     `}
                     {...field}
                   />

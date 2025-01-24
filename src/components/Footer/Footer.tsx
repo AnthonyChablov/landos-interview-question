@@ -29,7 +29,7 @@ interface FooterLinkProps {
  */
 const FooterLink: React.FC<FooterLinkProps> = ({ href, text }) => (
   <Link href={href} className="hover:opacity-75">
-    <ParagraphText className="text-gray-800 font-thin" size="lg" text={text} />
+    <ParagraphText className="text-gray-700 font-thin" size="lg" text={text} />
   </Link>
 );
 
@@ -117,13 +117,20 @@ interface FooterSectionProps {
  * Renders a section in the footer with a title and a list of links
  */
 const FooterSection: React.FC<FooterSectionProps> = ({ title, links }) => (
-  <div className="space-y-4">
-    <ParagraphText size="lg" text={title} className="font-medium text-black" />
-    <nav className="flex flex-col space-y-2">
-      {links.map((link, index) => (
-        <FooterLink key={index} href="#" text={link} />
-      ))}
-    </nav>
+  <div className="">
+    <ParagraphText
+      size="lg"
+      text={title}
+      className="font-semibold text-black"
+    />
+    <Separator size="small" />
+    <div className="space-y-4">
+      <nav className="flex flex-col space-y-2">
+        {links.map((link, index) => (
+          <FooterLink key={index} href="#" text={link} />
+        ))}
+      </nav>
+    </div>
   </div>
 );
 

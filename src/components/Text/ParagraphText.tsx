@@ -100,7 +100,7 @@ const ParagraphText = ({
   const sizeClass = paragraphSizes[size];
 
   return (
-    <div className={cn(className)}>
+    <span role="paragraph-text" className={cn(className)}>
       {dangerouslySetInnerHTML ? (
         <p
           className={sizeClass}
@@ -112,7 +112,7 @@ const ParagraphText = ({
           {children && <div className="text-2xl">{children}</div>}
         </>
       )}
-    </div>
+    </span>
   );
 };
 

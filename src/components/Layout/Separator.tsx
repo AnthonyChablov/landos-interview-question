@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
  * Props for the Separator component
  * Provides configurable spacing between elements
  */
-interface SeparatorProps {
+export interface SeparatorProps {
   /**
    * Defines the size of the separator
    * Controls vertical padding to create spacing
@@ -52,7 +52,12 @@ const Separator = ({ size = "small", className = "" }: SeparatorProps) => {
     extraExtraLarge: "py-36",
   };
 
-  return <div className={cn(sizeClasses[size] + " " + className)}></div>;
+  return (
+    <div
+      role="separator"
+      className={cn(sizeClasses[size] + " " + className)}
+    ></div>
+  );
 };
 
 export default Separator;

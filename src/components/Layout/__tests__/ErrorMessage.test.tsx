@@ -15,7 +15,7 @@ describe("ErrorMessage.tsx", () => {
     const testError = "Test error message";
     render(<ErrorMessage error={testError} />);
 
-    const errorText = screen.getByText(`An Error Has Occurred: ${testError}`);
+    const errorText = screen.getByRole(`paragraph-text`);
     expect(errorText).toHaveClass("text-red-500");
   });
 

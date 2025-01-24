@@ -59,7 +59,7 @@ const Nav = () => {
         {/* Logo */}
         <div className="text-xl font-bold">
           <Link href="/" className="w-fit">
-            <Image src={logo} width={27} alt="logo" />
+            <Image src={logo} width={27} height={27} alt="logo" />
           </Link>
         </div>
 

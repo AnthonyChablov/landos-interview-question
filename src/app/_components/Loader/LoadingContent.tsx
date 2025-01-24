@@ -13,9 +13,9 @@ import Container from "@/components/Layout/Container";
  * - Uses Tailwind CSS for styling and Skeleton UI component for placeholders
  *
  * @example
- * <Loader />
+ * <LoadingContent />
  */
-const Loader = () => {
+const LoadingContent = () => {
   return (
     <Container>
       <Separator size="large" />
@@ -50,4 +50,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default LoadingContent;

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { ReactNode } from "react";
 import useChatGPT from "@/hooks/useChatGPT";
 import HeaderText from "@/components/Text/HeaderText";
 import ParagraphText from "@/components/Text/ParagraphText";
@@ -10,57 +10,64 @@ import Loader from "@/app/_components/Loader/Loader";
 import SuggestedQuestions from "./SuggestedQuestions/SuggestedQuestions";
 import { capitalizeFirstLetter } from "@/lib/utils";
 import { randomlyBoldNouns } from "@/lib/utils";
+import { RenderHeader } from "./Render/RenderHeader";
+import ErrorMessage from "@/components/Layout/ErrorMessage";
 
-// Constant content
-const WINE_TITLE = "Everything about wine";
-const SUBTITLE = "What would you like to know?";
-
+/**
+ * ChatInterface Component
+ *
+ * @description
+ * - Manages the user interaction with the chat interface, integrating with OpenAI via a custom hook (`useChatGPT`)
+ * - Displays a dynamic response to the user's query, maintains conversation history, and allows for retrying queries
+ * - Handles errors and loading states gracefully
+ * - Allows users to interact with suggested questions to generate responses quickly
+ *
+ * @example
+ * <ChatInterface />
+ */
 const ChatInterface = () => {
-  // State and hooks
+  /**
+   * Constants for static text content
+   * These define the main header and subtitle used in the interface
+   */
+  const WINE_TITLE = "Everything about wine";
+  const SUBTITLE = "What would you like to know?";
+
+  // State and hooks for handling chat logic
   const { loading, response, error, handleSubmit, history } = useChatGPT();
 
   // Event Handlers
+  /**
+   * Handles click on suggested questions, submitting the suggestion as a question to the API
+   *
+   * @param suggestion The text of the suggested question
+   */
   const handleSuggestionClick = async (suggestion: string): Promise<void> => {
     handleSubmit({ question: suggestion });
   };
 
   // Render Methods
-  const renderErrorMessage = () => {
-    return error ? (
-      <>
-        <Separator size="extraSmall" />
-        <ParagraphText
-          className="text-red-500"
-          text={`An Error Has Occurred: ${error}`}
-          size="sm"
-        />
-      </>
-    ) : null;
+  /**
+   * Renders an error message if an error exists
+   *
+   * @returns JSX for error message display
+   */
+  const renderErrorMessage = (): ReactNode | null => {
+    return error ? <ErrorMessage error={error} /> : null;
   };
 
-  const renderHeader = () => (
-    <section className="flex items-center justify-center h-fit bg-customGray">
-      <Container className="text-center">
-        <Separator size="small" />
-        <HeaderText headerLevel="h1" header={WINE_TITLE} className="h-fit" />
-        <Separator size="extraSmall" />
-        <ParagraphText size="2xl" className="text-gray-500" text={SUBTITLE} />
-        <Separator size="small" />
-      </Container>
-    </section>
-  );
-
   // Conditional Renders
+  // Loading state rendering
   if (loading) {
     return (
       <>
-        {renderHeader()}
+        <RenderHeader />
         <Loader />
       </>
     );
   }
 
-  // Initial Response Render
+  // Initial response render when no response exists yet
   if (!response) {
     return (
       <>
@@ -83,10 +90,10 @@ const ChatInterface = () => {
     );
   }
 
-  // Main Response Render
+  // Main response render displaying the history and current response
   return (
     <>
-      {renderHeader()}
+      <RenderHeader />
       <Container>
         {history.map((prompt, index) => {
           return (

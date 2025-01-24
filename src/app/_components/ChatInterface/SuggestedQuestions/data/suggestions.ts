@@ -1,4 +1,13 @@
-export const suggestions = [
+// Define the interface for a suggestion object
+export interface Suggestion {
+  id: string;
+  suggestion: string;
+  author: string;
+  location: string;
+}
+
+// Define the suggestions array and assign the interface as the return type
+export const suggestions: Suggestion[] = [
   {
     id: "1",
     suggestion: "What makes a good wine?",

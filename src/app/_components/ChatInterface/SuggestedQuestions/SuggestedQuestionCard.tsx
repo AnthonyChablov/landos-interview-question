@@ -14,6 +14,34 @@ interface SuggestionQuestionCardProps {
   onClick: () => void;
 }
 
+/**
+ * SuggestedQuestionCard Component
+ *
+ * @description
+ * - Displays a suggestion question card with the suggestion text, author, and location details
+ * - Includes the author's avatar as a circular image
+ * - Supports hover interactions with scaling and background change
+ * - The `onClick` prop handles click events for the card
+ *
+ * @param id Unique identifier for the card
+ * @param suggestion The suggestion text displayed in quotes
+ * @param author The name of the person who suggested the question
+ * @param location The location of the author
+ * @param avatar The avatar image of the author, passed as StaticImageData
+ * @param onClick A function to handle the card click event
+ *
+ * @returns JSX for the suggested question card
+ *
+ * @example
+ * <SuggestedQuestionCard
+ *   id="1"
+ *   suggestion="How to pair wine with cheese?"
+ *   author="Jane Doe"
+ *   location="Paris, France"
+ *   avatar={avatarImage}
+ *   onClick={handleCardClick}
+ * />
+ */
 const SuggestedQuestionCard = ({
   id,
   suggestion,

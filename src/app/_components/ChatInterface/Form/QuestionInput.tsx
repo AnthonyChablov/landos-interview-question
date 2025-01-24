@@ -20,7 +20,24 @@ interface QuestionInputProps {
   onSubmit: (data: { question: string }) => Promise<void>;
   variant?: "default" | "alternate";
 }
-
+/**
+ * QuestionInput Component
+ *
+ * @description
+ * - A form component that allows the user to input a question
+ * - Validates the input using `zod` and `react-hook-form` with a schema defined in `wineQuestionSchema`
+ * - Displays a search icon when in the "default" variant and provides responsive design
+ * - Accepts an `onSubmit` function to handle the submitted question
+ * - The `variant` prop allows switching between "default" and "alternate" styles
+ *
+ * @param onSubmit A function to handle the form submission with the input data
+ * @param variant An optional prop to control the styling of the form ("default" or "alternate")
+ *
+ * @returns JSX for the question input form
+ *
+ * @example
+ * <QuestionInput onSubmit={handleSubmit} />
+ */
 const QuestionInput = ({
   onSubmit,
   variant = "default",

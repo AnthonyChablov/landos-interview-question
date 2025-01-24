@@ -14,19 +14,23 @@ interface ChatDisplayProps {
 const ChatDisplayCard = ({ prompt, index }: ChatDisplayProps) => {
   return (
     <React.Fragment key={`${prompt.question}-${index}`}>
-      <ParagraphText
-        size="2xl"
-        className="text-black font-medium"
-        text={`${capitalizeFirstLetter(prompt.question)}?`}
-      />
+      <div>
+        <ParagraphText
+          size="2xl"
+          className="text-black font-medium"
+          text={`${capitalizeFirstLetter(prompt.question)}?`}
+        />
+      </div>
       <Separator size="extraSmall" />
-      <ParagraphText
-        size="lg"
-        className="text-gray-700"
-        dangerouslySetInnerHTML={{
-          __html: randomlyBoldNouns(prompt.response),
-        }}
-      />
+      <div>
+        <ParagraphText
+          size="lg"
+          className="text-gray-700"
+          dangerouslySetInnerHTML={{
+            __html: randomlyBoldNouns(prompt.response), // This is the text you want to animate
+          }}
+        />
+      </div>
       <Separator size="small" />
     </React.Fragment>
   );

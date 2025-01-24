@@ -103,7 +103,7 @@ const Nav = () => {
                 <Separator size="extraExtraSmall" />
               </SheetTitle>
 
-              <nav className="flex flex-col space-y-6 py-10">
+              <nav className="flex flex-col w-full space-y-6 py-10">
                 {navLinks.map((link) => (
                   <NavLinkButton
                     key={link.id}

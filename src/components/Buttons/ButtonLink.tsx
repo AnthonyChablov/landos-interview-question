@@ -54,7 +54,7 @@ export function ButtonLink({
       asChild
       onClick={onClick}
       className={cn(
-        `${className} w-full md:w-fit text-white 
+        `${className} w-full  text-white 
         transition-all duration-300 ease-in-out
         `
       )}

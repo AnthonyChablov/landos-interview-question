@@ -10,7 +10,7 @@ const SUBTITLE = "Signin into your account here.";
 
 const page = () => {
   return (
-    <section className="flex items-center justify-center h-fit bg-customGray">
+    <section className="flex items-center justify-center h-screen bg-customGray">
       <Container className="text-center ">
         <Separator size="small" />
         <HeaderText headerLevel="h1" header={TITLE} className="h-fit" />

@@ -5,8 +5,8 @@ import Separator from "@/components/Layout/Separator";
 import ParagraphText from "@/components/Text/ParagraphText";
 
 // Constant content
-const TITLE = "Everything about wine";
-const SUBTITLE = "What would you like to know?";
+const TITLE = "Signin";
+const SUBTITLE = "Signin into your account here.";
 
 const page = () => {
   return (

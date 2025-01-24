@@ -22,6 +22,7 @@ const SuggestedQuestions = ({ onSuggestionClick }: SuggestedQuestionsProps) => {
         <ParagraphText
           className="text-gray-500"
           text="Get an immediate answer"
+          size="2xl"
         />
         <Separator size="medium" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

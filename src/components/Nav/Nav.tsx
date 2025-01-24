@@ -54,7 +54,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="sticky top-0 left-0 right-0 z-10 bg-white py-6 shadow-sm">
+    <div className="sticky  top-0 left-0 right-0 z-30 bg-white py-6 shadow-sm">
       <Container className="flex items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold">

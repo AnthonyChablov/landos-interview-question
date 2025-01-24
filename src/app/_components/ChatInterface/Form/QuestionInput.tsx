@@ -77,7 +77,7 @@ const QuestionInput = ({
                         ? "A question, a curiosity, anything you would like to know"
                         : " "
                     } `}
-                    className={`
+                    className={` text-md
                       ${variant === "default" && "rounded-full"} 
                       ${variant === "alternate" && "rounded-lg"} 
                       py-8 px-6 text-sm sm:text-lg lg:text-[1rem] bg-white

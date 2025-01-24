@@ -77,7 +77,8 @@ const QuestionInput = ({
                         ? "A question, a curiosity, anything you would like to know"
                         : " "
                     } `}
-                    className={` text-md
+                    className={` 
+                      text-md
                       ${variant === "default" && "rounded-full"} 
                       ${variant === "alternate" && "rounded-lg"} 
                       py-8 px-6 text-sm sm:text-lg lg:text-[1rem] bg-white
@@ -88,7 +89,7 @@ const QuestionInput = ({
                   />
 
                   <Image
-                    className={`absolute right-6 top-1/2 transform 
+                    className={`absolute right-6 top-1/2 transform bg-white 
                         -translate-y-1/2 text-gray-500 z-10
                         ${variant === "alternate" && "hidden"} 
                       `}

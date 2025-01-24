@@ -78,10 +78,9 @@ const QuestionInput = ({
                         : " "
                     } `}
                     className={` 
-                      text-md
                       ${variant === "default" && "rounded-full"} 
                       ${variant === "alternate" && "rounded-lg"} 
-                      py-8 px-6 text-sm sm:text-lg lg:text-[1rem] bg-white
+                      py-8 px-6 text-md bg-white
                       border-[1px] border-gray-300 hover:bg-gray-50/90
                       
                     `}

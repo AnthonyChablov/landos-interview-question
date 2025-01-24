@@ -10,7 +10,7 @@ const SUBTITLE = "Discover the services we offer to meet your needs."; // Releva
 
 const page = () => {
   return (
-    <div>
+    <section className="flex items-center justify-center h-screen bg-customGray">
       <Container className="text-center">
         <Separator size="small" />
         <HeaderText headerLevel="h1" header={TITLE} className="h-fit" />
@@ -18,7 +18,7 @@ const page = () => {
         <ParagraphText size="2xl" className="text-gray-500" text={SUBTITLE} />
         <Separator size="small" />
       </Container>
-    </div>
+    </section>
   );
 };
 

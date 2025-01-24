@@ -10,15 +10,15 @@ const SUBTITLE = "Signin into your account here.";
 
 const page = () => {
   return (
-    <div>
-      <Container className="text-center">
+    <section className="flex items-center justify-center h-fit bg-customGray">
+      <Container className="text-center ">
         <Separator size="small" />
         <HeaderText headerLevel="h1" header={TITLE} className="h-fit" />
         <Separator size="extraSmall" />
         <ParagraphText size="2xl" className="text-gray-500" text={SUBTITLE} />
         <Separator size="small" />
       </Container>
-    </div>
+    </section>
   );
 };
 

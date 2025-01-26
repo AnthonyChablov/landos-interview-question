@@ -7,7 +7,7 @@ describe("LoadingContent Component", () => {
     render(<LoadingContent />);
 
     // Check that the content is wrapped in the Container
-    const container = screen.getByRole("loading-content"); // Assuming role="group" for Container
-    expect(container).toBeInTheDocument();
+    const loadingContent = screen.getByRole("loading-content"); // Assuming role="group" for Container
+    expect(loadingContent).toBeInTheDocument();
   });
 });

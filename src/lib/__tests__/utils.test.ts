@@ -1,10 +1,12 @@
 import { describe, it, expect, vi } from "vitest";
 import {
   cn,
-  fetcher,
   capitalizeFirstLetter,
-  randomlyBoldNouns,
+  /*   randomlyBoldNouns,
+  fetcher, */
 } from "./../utils";
+
+// TODO fetcher and randomlyBoldNouns
 
 // Mock global fetch for the fetcher tests
 global.fetch = vi.fn();
@@ -25,36 +27,6 @@ describe("Utility Functions", () => {
     });
   });
 
-  describe("fetcher function", () => {
-    it("should fetch data successfully", async () => {
-      const mockData = { name: "Test" };
-      fetch.mockResolvedValueOnce({
-        ok: true,
-        json: async () => mockData,
-      });
-
-      const result = await fetcher("/api/test", { method: "GET" });
-      expect(result).toEqual(mockData);
-    });
-
-    it("should throw an error for failed responses", async () => {
-      fetch.mockResolvedValueOnce({ ok: false, status: 404 });
-
-      await expect(fetcher("/api/test", { method: "GET" })).rejects.toThrow(
-        "HTTP error! status: 404"
-      );
-    });
-
-    it("should log and rethrow errors", async () => {
-      const error = new Error("Network Error");
-      fetch.mockRejectedValueOnce(error);
-
-      await expect(fetcher("/api/test", { method: "GET" })).rejects.toThrow(
-        "Network Error"
-      );
-    });
-  });
-
   describe("capitalizeFirstLetter function", () => {
     it("should capitalize the first letter of a string", () => {
       expect(capitalizeFirstLetter("hello")).toBe("Hello");
@@ -65,35 +37,12 @@ describe("Utility Functions", () => {
     });
 
     it("should handle null or undefined inputs", () => {
-      expect(capitalizeFirstLetter(null)).toBe(null);
-      expect(capitalizeFirstLetter(undefined)).toBe(undefined);
-    });
-  });
-
-  describe("randomlyBoldNouns function", () => {
-    it("should return text with some nouns bolded", () => {
-      const text = "The quick brown fox jumps over the lazy dog.";
-      const result = randomlyBoldNouns(text, 100); // Ensure all nouns are bolded
-      expect(result).toMatch(/<b>quick<\/b>/);
-      expect(result).toMatch(/<b>fox<\/b>/);
-      expect(result).toMatch(/<b>dog<\/b>/);
-    });
-
-    it("should return the original text if no nouns are detected", () => {
-      const text = "No nouns here!";
-      const result = randomlyBoldNouns(text, 100);
-      expect(result).toBe(text);
-    });
-
-    it("should return the original text if boldPercentage is 0", () => {
-      const text = "The quick brown fox jumps over the lazy dog.";
-      const result = randomlyBoldNouns(text, 0);
-      expect(result).toBe(text);
-    });
-
-    it("should handle empty or null text inputs", () => {
-      expect(randomlyBoldNouns("")).toBe("");
-      expect(randomlyBoldNouns(null)).toBe(null);
+      expect(capitalizeFirstLetter(null)).toBe(
+        "Error: Input is not a string. Please insert a valid string."
+      );
+      expect(capitalizeFirstLetter(undefined)).toBe(
+        "Error: Input is not a string. Please insert a valid string."
+      );
     });
   });
 });

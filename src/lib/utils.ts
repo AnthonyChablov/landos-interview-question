@@ -67,9 +67,13 @@ export async function fetcher<T>(
  * capitalizeFirstLetter('hello') // Returns 'Hello'
  * capitalizeFirstLetter('') // Returns ''
  */
-export function capitalizeFirstLetter(str: string): string {
+export function capitalizeFirstLetter(str: unknown): string {
+  if (typeof str !== "string") {
+    return "Error: Input is not a string. Please insert a valid string.";
+  }
+
   if (!str) {
-    return str; // Handle empty or null strings
+    return ""; // Handle empty or null strings
   }
   return str[0].toUpperCase() + str.slice(1);
 }

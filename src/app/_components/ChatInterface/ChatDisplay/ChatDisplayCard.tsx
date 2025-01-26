@@ -13,14 +13,12 @@ interface ChatDisplayProps {
 
 const ChatDisplayCard = ({ prompt, index }: ChatDisplayProps) => {
   return (
-    <React.Fragment key={`${prompt.question}-${index}`}>
-      <div>
-        <ParagraphText
-          size="2xl"
-          className="text-black font-medium"
-          text={`${capitalizeFirstLetter(prompt.question)}?`}
-        />
-      </div>
+    <div role="card" key={`${prompt.question}-${index}`}>
+      <ParagraphText
+        size="2xl"
+        className="text-black font-medium"
+        text={`${capitalizeFirstLetter(prompt.question)}?`}
+      />
       <Separator size="extraSmall" />
       <div>
         <ParagraphText
@@ -32,7 +30,7 @@ const ChatDisplayCard = ({ prompt, index }: ChatDisplayProps) => {
         />
       </div>
       <Separator size="small" />
-    </React.Fragment>
+    </div>
   );
 };
 

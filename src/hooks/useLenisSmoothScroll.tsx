@@ -31,6 +31,7 @@ const useLenisSmoothScroll = (): void => {
      *
      * @param time - The timestamp for the current animation frame
      */
+
     function raf(time: number) {
       lenis.raf(time); // Update the Lenis scroll instance
       requestAnimationFrame(raf); // Keep updating the scroll behavior

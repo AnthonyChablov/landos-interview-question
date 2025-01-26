@@ -44,6 +44,29 @@ describe("WineQuestionSchema", () => {
     });
   });
 
+  it("rejects inputs that are not strings", () => {
+    const repetitiveInputs = [
+      0,
+      10,
+      false,
+      [],
+      [0, "sd", 122, {}, []],
+      {},
+      true,
+      -200.2,
+      -4,
+    ];
+    repetitiveInputs.forEach((input) => {
+      const result = validateWineQuestion(input);
+      expect(result.success).toBe(false);
+      if (result.error) {
+        expect(result.error.issues[0].message).toBe(
+          "Input question must be a string."
+        );
+      }
+    });
+  });
+
   it("validates edge cases with valid questions", () => {
     const validEdgeCases = [
       "What is the history of wine in ancient Rome?",

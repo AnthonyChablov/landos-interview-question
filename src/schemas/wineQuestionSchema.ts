@@ -25,7 +25,7 @@ import { z } from "zod";
  */
 export const wineQuestionSchema = z.object({
   question: z
-    .string()
+    .string({ message: "Input question must be a string." })
     .trim()
     .min(5, { message: "Question must be at least 5 characters." })
     .max(500, { message: "Question must be at most 500 characters." })
@@ -97,10 +97,6 @@ export type WineQuestionType = z.infer<typeof wineQuestionSchema>;
  * @returns A Zod safeParse result, with success status and either parsed data or error details.
  */
 export const validateWineQuestion = (question: unknown) => {
-  if (typeof question !== "string") {
-    throw new TypeError("The provided input must be a string.");
-  }
-
   // Validate the string against the schema
   return wineQuestionSchema.safeParse({ question });
 };

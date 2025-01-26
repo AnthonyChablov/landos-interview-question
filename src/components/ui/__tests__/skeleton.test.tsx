@@ -4,7 +4,7 @@ import { Skeleton } from "../skeleton"; // Adjust according to the actual file p
 
 // Mock the cn utility for className handling if necessary
 vi.mock("@/lib/utils", () => ({
-  cn: vi.fn((...args: any[]) => args.join(" ")),
+  cn: vi.fn((...args: string[]) => args.join(" ")),
 }));
 
 describe("Skeleton Component", () => {

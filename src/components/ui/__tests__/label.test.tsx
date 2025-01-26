@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { Label } from "./../label"; // Adjust according to the actual file path
-import * as LabelPrimitive from "@radix-ui/react-label"; // Import the LabelPrimitive for mocking
 
 // Mock the cn utility for className handling if necessary
 vi.mock("@/lib/utils", () => ({

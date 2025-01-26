@@ -52,6 +52,7 @@ const QuestionInput = ({
   return (
     <Form {...form}>
       <form
+        role="form"
         onSubmit={form.handleSubmit(onSubmit)} // This will now pass the form data object to onSubmit
         className={cn(`
             ${variant === "default" && "md:w-6/12 mx-auto rounded-full"} 
@@ -92,7 +93,8 @@ const QuestionInput = ({
                       `}
                     src={searchIcon}
                     alt="searchIcon"
-                    placeholder="blur"
+                    width={14}
+                    height={14}
                   />
                 </div>
               </FormControl>

@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, vi, expect } from "vitest";
-import ChatDisplayCard from "./ChatDisplayCard";
-import { capitalizeFirstLetter, randomlyBoldNouns } from "@/lib/utils";
+import ChatDisplayCard from "../ChatDisplayCard";
 
 // Mocking the utility functions
 vi.mock("@/lib/utils", () => ({

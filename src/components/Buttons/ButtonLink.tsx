@@ -53,11 +53,10 @@ export function ButtonLink({
     <Button variant={"outline"} asChild onClick={onClick}>
       <Link
         role="link"
-        className={cn(
-          `${className} w-full  text-white 
-        transition-all duration-300 ease-in-out 
-        `
-        )}
+        className={cn(`
+          ${className} w-full  text-white 
+          transition-all duration-300 ease-in-out shadow-none
+        `)}
         href={href}
       >
         {children}

@@ -80,6 +80,7 @@ const useChatGPT = (): UseChatGPT => {
   const [history, setHistory] = useState<ChatHistory[]>([]);
 
   const handleSubmit = async ({ question }: { question: string }) => {
+    // ignores an emptty question
     if (!question.trim()) return;
 
     setLoading(true);

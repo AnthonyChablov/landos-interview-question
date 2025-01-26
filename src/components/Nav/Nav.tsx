@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import Container from "../Layout/Container";
 import logo from "@/assets/Figma.png";
-import { navLinks } from "./navLinks";
+import { navLinks } from "./data/navLinks";
 import { ButtonIcon } from "../Buttons/ButtonIcons";
 import NavLinkButton from "./NavLinkButton";
 import Separator from "../Layout/Separator";

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import NavLinkButton from "@/components/Nav/NavLinkButton"; // Adjust the path as necessary
 import { describe, it, expect, vi } from "vitest";
-import { NavLink } from "../navLinks";
+import { NavLink } from "../data/navLinks";
 
 describe("NavLinkButton Component", () => {
   const mockLink: NavLink = {

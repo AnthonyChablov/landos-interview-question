@@ -2,7 +2,7 @@ import React from "react";
 import { ButtonLink } from "../Buttons/ButtonLink";
 import ParagraphText from "../Text/ParagraphText";
 import { cn } from "@/lib/utils";
-import { NavLink } from "./navLinks";
+import { NavLink } from "./data/navLinks";
 
 // Define types for the nav link button props object
 interface NavLinkButtonProps {

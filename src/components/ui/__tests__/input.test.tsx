@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { Input } from "./../input"; // Adjust according to the actual file path
-import { cn } from "@/lib/utils"; // Import the utility for classnames if needed
 
 // Mock the cn utility for className handling if necessary
 vi.mock("@/lib/utils", () => ({

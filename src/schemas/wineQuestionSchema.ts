@@ -91,19 +91,16 @@ export const wineQuestionSchema = z.object({
 export type WineQuestionType = z.infer<typeof wineQuestionSchema>;
 
 /**
- * Utility function to validate wine questions
+ * Utility Function that Validates a wine question input.
  *
- * @param question - Input question to validate
- * @returns Validation result with success status and data/errors
- *
- * @example
- * const result = validateWineQuestion("Best Merlot regions?")
- * if (result.success) {
- *   // Process valid question
- * } else {
- *   // Handle validation errors
- * }
+ * @param question - Input to validate as a wine question.
+ * @returns A Zod safeParse result, with success status and either parsed data or error details.
  */
-export const validateWineQuestion = (question: string) => {
+export const validateWineQuestion = (question: unknown) => {
+  if (typeof question !== "string") {
+    throw new TypeError("The provided input must be a string.");
+  }
+
+  // Validate the string against the schema
   return wineQuestionSchema.safeParse({ question });
 };

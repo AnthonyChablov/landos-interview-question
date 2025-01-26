@@ -47,19 +47,19 @@ export function ButtonLink({
   href,
   className,
   children,
-  onClick,
+  onClick = () => {},
 }: ButtonLinkProps) {
   return (
-    <Button
-      asChild
-      onClick={onClick}
-      className={cn(
-        `${className} w-full  text-white 
-        transition-all duration-300 ease-in-out
+    <Button variant={"outline"} asChild onClick={onClick}>
+      <Link
+        role="link"
+        className={cn(
+          `${className} w-full  text-white 
+        transition-all duration-300 ease-in-out 
         `
-      )}
-    >
-      <Link className="" href={href}>
+        )}
+        href={href}
+      >
         {children}
       </Link>
     </Button>

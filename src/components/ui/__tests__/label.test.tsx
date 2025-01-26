@@ -4,7 +4,7 @@ import { Label } from "./../label"; // Adjust according to the actual file path
 
 // Mock the cn utility for className handling if necessary
 vi.mock("@/lib/utils", () => ({
-  cn: vi.fn((...args: any[]) => args.join(" ")),
+  cn: vi.fn((...args: string[]) => args.join(" ")),
 }));
 
 describe("Label Component", () => {
